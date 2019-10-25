@@ -1,0 +1,11 @@
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csprojAssemblyReference.cache
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.AddPart.resources
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.Main_Screen.resources
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.Properties.Resources.resources
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csproj.GenerateResource.cache
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csproj.CoreCompileInputs.cache
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.exe.config
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.exe
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.pdb
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.exe
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.pdb
