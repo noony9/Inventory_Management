@@ -60,7 +60,6 @@
             InventoryManagementSystem.Size = new System.Drawing.Size(283, 25);
             InventoryManagementSystem.TabIndex = 4;
             InventoryManagementSystem.Text = "Inventory Management System";
-            InventoryManagementSystem.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Parts
             // 
@@ -90,7 +89,7 @@
             this.Main_Parts_Add_Btn.TabIndex = 0;
             this.Main_Parts_Add_Btn.Text = "Add";
             this.Main_Parts_Add_Btn.UseVisualStyleBackColor = true;
-            this.Main_Parts_Add_Btn.Click += new System.EventHandler(this.AddParts_Click);
+            this.Main_Parts_Add_Btn.Click += new System.EventHandler(this.Main_Parts_Add_Btn_Click);
             // 
             // Main_Parts_Modify_Btn
             // 
@@ -100,7 +99,7 @@
             this.Main_Parts_Modify_Btn.TabIndex = 1;
             this.Main_Parts_Modify_Btn.Text = "Modify";
             this.Main_Parts_Modify_Btn.UseVisualStyleBackColor = true;
-            this.Main_Parts_Modify_Btn.Click += new System.EventHandler(this.ModifyParts_Click);
+            this.Main_Parts_Modify_Btn.Click += new System.EventHandler(this.Main_Parts_Modify_Btn_Click);
             // 
             // Main_Parts_Delete_Btn
             // 
@@ -110,7 +109,7 @@
             this.Main_Parts_Delete_Btn.TabIndex = 2;
             this.Main_Parts_Delete_Btn.Text = "Delete";
             this.Main_Parts_Delete_Btn.UseVisualStyleBackColor = true;
-            this.Main_Parts_Delete_Btn.Click += new System.EventHandler(this.DeleteParts_Click);
+            this.Main_Parts_Delete_Btn.Click += new System.EventHandler(this.Main_Parts_Delete_Btn_Click);
             // 
             // Main_Parts_Search_TextBox
             // 
@@ -127,7 +126,7 @@
             this.Main_Parts_Search_Btn.TabIndex = 5;
             this.Main_Parts_Search_Btn.Text = "Search";
             this.Main_Parts_Search_Btn.UseVisualStyleBackColor = true;
-            this.Main_Parts_Search_Btn.Click += new System.EventHandler(this.SearchParts_Click);
+            this.Main_Parts_Search_Btn.Click += new System.EventHandler(this.Main_Parts_Search_Btn_Click);
             // 
             // Main_Products_Add_Btn
             // 
@@ -137,7 +136,7 @@
             this.Main_Products_Add_Btn.TabIndex = 6;
             this.Main_Products_Add_Btn.Text = "Add";
             this.Main_Products_Add_Btn.UseVisualStyleBackColor = true;
-            this.Main_Products_Add_Btn.Click += new System.EventHandler(this.AddProducts_Click);
+            this.Main_Products_Add_Btn.Click += new System.EventHandler(this.Main_Products_Add_Btn_Click);
             // 
             // Main_Products_Modify_Btn
             // 
@@ -147,7 +146,7 @@
             this.Main_Products_Modify_Btn.TabIndex = 7;
             this.Main_Products_Modify_Btn.Text = "Modify";
             this.Main_Products_Modify_Btn.UseVisualStyleBackColor = true;
-            this.Main_Products_Modify_Btn.Click += new System.EventHandler(this.ModifyProducts_Click);
+            this.Main_Products_Modify_Btn.Click += new System.EventHandler(this.Main_Products_Modify_Btn_Click);
             // 
             // Main_Products_Delete_Btn
             // 
@@ -157,7 +156,7 @@
             this.Main_Products_Delete_Btn.TabIndex = 8;
             this.Main_Products_Delete_Btn.Text = "Delete";
             this.Main_Products_Delete_Btn.UseVisualStyleBackColor = true;
-            this.Main_Products_Delete_Btn.Click += new System.EventHandler(this.DeleteProducts_Click);
+            this.Main_Products_Delete_Btn.Click += new System.EventHandler(this.Main_Products_Delete_Btn_Click);
             // 
             // Main_Exit_Btn
             // 
@@ -167,6 +166,7 @@
             this.Main_Exit_Btn.TabIndex = 9;
             this.Main_Exit_Btn.Text = "Exit";
             this.Main_Exit_Btn.UseVisualStyleBackColor = true;
+            this.Main_Exit_Btn.Click += new System.EventHandler(this.Main_Exit_Btn_Click);
             // 
             // Main_Products_Search_Btn
             // 
@@ -176,7 +176,7 @@
             this.Main_Products_Search_Btn.TabIndex = 10;
             this.Main_Products_Search_Btn.Text = "Search";
             this.Main_Products_Search_Btn.UseVisualStyleBackColor = true;
-            this.Main_Products_Search_Btn.Click += new System.EventHandler(this.SearchProducts_Click);
+            this.Main_Products_Search_Btn.Click += new System.EventHandler(this.Main_Products_Search_Btn_Click);
             // 
             // Main_Products_Search_TextBox
             // 

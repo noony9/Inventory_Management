@@ -41,7 +41,7 @@
             this.Max = new System.Windows.Forms.Label();
             this.PriceCost = new System.Windows.Forms.Label();
             this.Inventory = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.OutsourcedRadio = new System.Windows.Forms.RadioButton();
             this.InHouseRadio = new System.Windows.Forms.RadioButton();
@@ -152,14 +152,14 @@
             this.Inventory.TabIndex = 41;
             this.Inventory.Text = "Inventory";
             // 
-            // Name
+            // NameLabel
             // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(166, 128);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 40;
-            this.Name.Text = "Name";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(166, 128);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NameLabel.TabIndex = 40;
+            this.NameLabel.Text = "Name";
             // 
             // ID
             // 
@@ -209,7 +209,7 @@
             this.Controls.Add(this.Max);
             this.Controls.Add(this.PriceCost);
             this.Controls.Add(this.Inventory);
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.OutsourcedRadio);
             this.Controls.Add(this.InHouseRadio);
@@ -235,7 +235,7 @@
         private System.Windows.Forms.Label Max;
         private System.Windows.Forms.Label PriceCost;
         private System.Windows.Forms.Label Inventory;
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.RadioButton OutsourcedRadio;
         private System.Windows.Forms.RadioButton InHouseRadio;

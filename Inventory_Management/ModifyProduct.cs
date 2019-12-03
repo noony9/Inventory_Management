@@ -61,5 +61,10 @@ namespace Inventory_Management
         {
 
         }
+
+        private void IDTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

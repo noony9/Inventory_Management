@@ -41,7 +41,7 @@
             this.Max = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.Label();
             this.Inventory = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.Parts_Associated_Label = new System.Windows.Forms.Label();
             this.Candidate_Parts_Label = new System.Windows.Forms.Label();
@@ -132,6 +132,7 @@
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 66;
+            this.IDTextBox.TextChanged += new System.EventHandler(this.IDTextBox_TextChanged);
             // 
             // Max
             // 
@@ -160,14 +161,14 @@
             this.Inventory.TabIndex = 63;
             this.Inventory.Text = "Inventory";
             // 
-            // Name
+            // NameLabel
             // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(40, 153);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 62;
-            this.Name.Text = "Name";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(40, 153);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NameLabel.TabIndex = 62;
+            this.NameLabel.Text = "Name";
             // 
             // ID
             // 
@@ -255,7 +256,7 @@
             this.Controls.Add(this.Max);
             this.Controls.Add(this.Price);
             this.Controls.Add(this.Inventory);
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.Parts_Associated_Label);
             this.Controls.Add(this.Candidate_Parts_Label);
@@ -290,7 +291,7 @@
         private System.Windows.Forms.Label Max;
         private System.Windows.Forms.Label Price;
         private System.Windows.Forms.Label Inventory;
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label Parts_Associated_Label;
         private System.Windows.Forms.Label Candidate_Parts_Label;

@@ -22,47 +22,47 @@ namespace Inventory_Management
 
         }
 
-        private void Label1_Click(object sender, EventArgs e)
+        private void Main_Exit_Btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Main_Parts_Search_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void AddParts_Click(object sender, EventArgs e)
+        private void Main_Parts_Add_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void ModifyParts_Click(object sender, EventArgs e)
+        private void Main_Parts_Modify_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void DeleteParts_Click(object sender, EventArgs e)
+        private void Main_Parts_Delete_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void SearchParts_Click(object sender, EventArgs e)
+        private void Main_Products_Search_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void AddProducts_Click(object sender, EventArgs e)
+        private void Main_Products_Add_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void ModifyProducts_Click(object sender, EventArgs e)
+        private void Main_Products_Modify_Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void DeleteProducts_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SearchProducts_Click(object sender, EventArgs e)
+        private void Main_Products_Delete_Btn_Click(object sender, EventArgs e)
         {
 
         }
