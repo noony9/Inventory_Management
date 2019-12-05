@@ -11,13 +11,30 @@ namespace Inventory_Management
 {
     public class Product
     {
-        public static BindingList<Part> AssociatedParts = new BindingList<Part>();
+        // Fields
         private int productID;
         private string name;
         private decimal price;
         private int inStock;
         private int min;
         private int max;
+
+        // Constructor
+        public Product() { }
+
+        // Overload Constructor
+        public Product(int productID, string name, decimal price, int inStock, int min, int max)
+        {
+            this.productID = productID;
+            this.name = name;
+            this.price = price;
+            this.inStock = inStock;
+            this.min = min;
+            this.max = max;
+        }
+
+        // Properties
+        public BindingList<Part> AssociatedParts { get; set; }
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price
@@ -53,11 +70,11 @@ namespace Inventory_Management
                 else max = value;
             }
         }
-        public static void AddAssociatedPart(Part part)
+        public void AddAssociatedPart(Part part)
         {
             AssociatedParts.Add(part);
         }
-        public static bool RemoveAssociatedPart(int partID)
+        public bool RemoveAssociatedPart(int partID)
         {
             bool check = false;
             foreach (Part part in AssociatedParts)
@@ -71,7 +88,7 @@ namespace Inventory_Management
             }
             return check;
         }
-        public static Part LookupAssociatedPart(int partID)
+        public Part LookupAssociatedPart(int partID)
         {
             foreach (Part part in AssociatedParts)
             {

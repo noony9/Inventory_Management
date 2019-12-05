@@ -11,12 +11,15 @@ namespace Inventory_Management
 {
     public abstract class Part
     {
+        // Fields
         private int partID;
         private string name;
         private decimal price;
         private int inStock;
         private int min;
         private int max;
+
+        // Properties
         public int PartID { get; set; }
         public string Name { get; set; }
         public decimal Price
