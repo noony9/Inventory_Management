@@ -53,7 +53,7 @@ namespace Inventory_Management
 
             // Add parts to products associated list
 
-                // product1 associated parts
+            // product1 associated parts
             product1.AssociatedParts.Add(inhouse1);
             product1.AssociatedParts.Add(inhouse2);
             product1.AssociatedParts.Add(inhouse3);
@@ -61,28 +61,130 @@ namespace Inventory_Management
             product1.AssociatedParts.Add(outsourced2);
             product1.AssociatedParts.Add(outsourced3);
 
-                // product2 associated parts
+            // product2 associated parts
             product2.AssociatedParts.Add(inhouse1);
             product2.AssociatedParts.Add(outsourced3);
 
-                // product3 associated parts
+            // product3 associated parts
             product3.AssociatedParts.Add(inhouse2);
 
-                // product4 associated parts
+            // product4 associated parts
             product4.AssociatedParts.Add(inhouse1);
             product4.AssociatedParts.Add(outsourced3);
 
-                // product5 associated parts
+            // product5 associated parts
             product5.AssociatedParts.Add(inhouse3);
             product5.AssociatedParts.Add(outsourced1);
             product5.AssociatedParts.Add(outsourced3);
 
 
         }
+        //--------------------Product Methods---------------------//
+        // add new products
+        public void AddProduct(Product product)
+        {
+            Products.Add(product);
+        }
 
-        // Method to add products
+        // iterate through Products list and remove products if the productID is a match
+        public bool RemoveProduct(Product productID) // bind to remove button
+        {
+            bool check = false;
+            foreach (Product p in Products)
+            {
+                if (productID == p)
+                {
+                    Products.Remove(p);
+                    check = true;
+                }
+                else MessageBox.Show("Product does not Exist");
+                check = false;
+            }
+            return check;
+        }
 
+        // iterate through Products list and return it if found, else display not found
+        public Product LookupProduct(int productID)  //bind to search button
+        {
+            foreach (Product p in Products)
+            {
+                if (productID == p.ProductID)
+                {
+                    return p;
+                }
+                else MessageBox.Show("Product not found");
+            }
+            return null;
+        }
+        
+        // iterate through Products list and update Product fields with user arguments
+        public void UpdateProduct(int productID, Product product) // bind to save button
+        {
+            foreach(Product p in Products)
+            {
+                if (productID == p.ProductID)
+                {
+                    p.Name = product.Name;
+                    p.Price = product.Price;
+                    p.InStock = product.InStock;
+                    p.Min = product.Min;
+                    p.Max = product.Max;
+                }
+                else MessageBox.Show("Product not found");
+            }
+        }
+        //--------------------Part Methods---------------------//
+        public void AddPart(Part part)
+        {
+            Parts.Add(part);
+        }
 
+        // iterate through Parts list and remove products if the partID is a match
+        public bool RemovePart(Part partID) // bind to remove button
+        {
+            bool check = false;
+            foreach (Part p in Parts)
+            {
+                if (partID == p)
+                {
+                    Parts.Remove(p);
+                    check = true;
+                }
+                else MessageBox.Show("Part does not Exist");
+                check = false;
+            }
+            return check;
+        }
 
+        // iterate through Parts list and return it if found, else display not found
+        public Part LookupPart(int partID)  //bind to search button
+        {
+            foreach (Part p in Parts)
+            {
+                if (partID == p.PartID)
+                {
+                    return p;
+                }
+                else MessageBox.Show("Part not found");
+            }
+            return null;
+        }
+
+        // iterate through Parts list and update Part fields with user arguments
+        public void UpdatePart(int partID, Part part) // bind to save button
+        {
+            foreach (Part p in Parts)
+            {
+                if (partID == p.PartID)
+                {
+                    p.Name = part.Name;
+                    p.Price = part.Price;
+                    p.InStock = part.InStock;
+                    p.Min = part.Min;
+                    p.Max = part.Max;
+                }
+                else MessageBox.Show("Part not found");
+            }
+        }
     }
 }
