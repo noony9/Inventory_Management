@@ -31,29 +31,7 @@ namespace Inventory_Management
             }
         }
         public int InStock { get; set; }
-        public int Min
-        {
-            get { return min; }
-            set
-            {
-                if (value > max)
-                {
-                    MessageBox.Show("Value cannot exceed Max");
-                }
-                else min = value;
-            }
-        }
-        public int Max
-        {
-            get { return max; }
-            set
-            {
-                if (value < min)
-                {
-                    MessageBox.Show("Value cannot be lower than Min");
-                }
-                else max = value;
-            }
-        }
+        public int Min { get; set; }
+        public int Max { get; set; }
     }
 }

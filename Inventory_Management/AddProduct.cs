@@ -22,9 +22,9 @@ namespace Inventory_Management
 
         }
 
-        private void AddProduct_Inventory_Label_Click(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

@@ -203,7 +203,6 @@
             this.Inventory.Size = new System.Drawing.Size(51, 13);
             this.Inventory.TabIndex = 28;
             this.Inventory.Text = "Inventory";
-            this.Inventory.Click += new System.EventHandler(this.AddProduct_Inventory_Label_Click);
             // 
             // NameLabel
             // 
@@ -239,6 +238,7 @@
             this.CancelBtn.TabIndex = 39;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // SaveBtn
             // 

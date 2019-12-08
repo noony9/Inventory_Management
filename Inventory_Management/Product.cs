@@ -25,16 +25,16 @@ namespace Inventory_Management
         // Overload Constructor
         public Product(int productID, string name, decimal price, int inStock, int min, int max)
         {
-            this.productID = productID;
-            this.name = name;
-            this.price = price;
-            this.inStock = inStock;
-            this.min = min;
-            this.max = max;
+            ProductID = productID;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
         }
 
         // Properties
-        public BindingList<Part> AssociatedParts { get; set; }
+        public static BindingList<Part> AssociatedParts = new BindingList<Part>();
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price
@@ -46,30 +46,10 @@ namespace Inventory_Management
             }
         }
         public int InStock { get; set; }
-        public int Min
-        {
-            get { return min; }
-            set
-            {
-                if (value > max)
-                {
-                    MessageBox.Show("Value cannot exceed Max");
-                }
-                else min = value;
-            }
-        }
-        public int Max
-        {
-            get { return max; }
-            set
-            {
-                if (value < min)
-                {
-                    MessageBox.Show("Value cannot be lower than Min");
-                }
-                else max = value;
-            }
-        }
+        public int Min { get; set; }
+        public int Max { get; set; }
+
+        // Methods
         public void AddAssociatedPart(Part part)
         {
             AssociatedParts.Add(part);

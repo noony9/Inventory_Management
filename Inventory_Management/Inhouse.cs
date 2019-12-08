@@ -21,13 +21,13 @@ namespace Inventory_Management
 
         public Inhouse(int partID, string name, decimal price, int inStock, int min, int max, int machineID)
         {
-            this.PartID = partID;
-            this.Name = name;
-            this.Price = price;
-            this.InStock = inStock;
-            this.Min = min;
-            this.Max = max;
-            this.MachineID = machineID;
+            PartID = partID;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
+            MachineID = machineID;
         }
 
 

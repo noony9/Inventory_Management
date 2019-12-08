@@ -20,13 +20,13 @@ namespace Inventory_Management
         // Constructor
         public Outsourced(int partID, string name, decimal price, int inStock, int min, int max, string companyName)
         {
-            this.PartID = partID;
-            this.Name = name;
-            this.Price = price;
-            this.InStock = inStock;
-            this.Min = min;
-            this.Max = max;
-            this.CompanyName = companyName;
+            PartID = partID;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
+            CompanyName = companyName;
         }
     }
 }

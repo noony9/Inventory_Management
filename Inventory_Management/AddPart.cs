@@ -27,22 +27,7 @@ namespace Inventory_Management
 
         }
 
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
@@ -52,14 +37,14 @@ namespace Inventory_Management
 
         }
 
-        private void Label5_Click(object sender, EventArgs e)
+        private void TextBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void TextBox4_TextChanged(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

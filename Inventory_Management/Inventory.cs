@@ -12,13 +12,14 @@ namespace Inventory_Management
     public class Inventory
     {
         // Properties
-        BindingList<Product> Products { get; set; }
-        BindingList<Part> Parts { get; set; }
+        public static BindingList<Product> Products = new BindingList<Product>();
+        public static BindingList<Part> Parts = new BindingList<Part>();
 
         // Method to create a base inventory of products/parts, populate the binding list Products, Parts and AssociatedParts
-        public void InitializeProductsAndParts()
+ 
+        public static void InitializeProductsAndParts()
         {
-            // Create products
+           // Create products
             Product product1 = new Product(001, "Yellow Card", 99.00m, 5, 1, 10);
             Product product2 = new Product(002, "Green Card", 82.00m, 15, 1, 10);
             Product product3 = new Product(003, "Blue Card", 54.10m, 28, 1, 10);
@@ -31,9 +32,9 @@ namespace Inventory_Management
             Part inhouse3 = new Inhouse(001, "Wallet", 16.00m, 66, 1, 10, 7779);
 
             // Create outsourced parts
-            Part outsourced1 = new Outsourced(001, "Glue", 10.00m, 115, 1, 10, "Company A");
-            Part outsourced2 = new Outsourced(001, "Thread", 10.00m, 115, 1, 10, "Company B");
-            Part outsourced3 = new Outsourced(001, "Leather Straps", 10.00m, 115, 1, 10, "Company B");
+            Part outsourced1 = new Outsourced(001, "Glue", 17.00m, 115, 1, 10, "Company A");
+            Part outsourced2 = new Outsourced(001, "Thread", 21.20m, 115, 1, 10, "Company B");
+            Part outsourced3 = new Outsourced(001, "Leather Straps", 36.99m, 115, 1, 10, "Company B");
 
             // Add products to Products list
 
@@ -54,31 +55,31 @@ namespace Inventory_Management
             // Add parts to products associated list
 
             // product1 associated parts
-            product1.AssociatedParts.Add(inhouse1);
-            product1.AssociatedParts.Add(inhouse2);
-            product1.AssociatedParts.Add(inhouse3);
-            product1.AssociatedParts.Add(outsourced1);
-            product1.AssociatedParts.Add(outsourced2);
-            product1.AssociatedParts.Add(outsourced3);
+            product1.AddAssociatedPart(inhouse1);
+            product1.AddAssociatedPart(inhouse2);
+            product1.AddAssociatedPart(inhouse3);
+            product1.AddAssociatedPart(outsourced1);
+            product1.AddAssociatedPart(outsourced2);
+            product1.AddAssociatedPart(outsourced3);
 
             // product2 associated parts
-            product2.AssociatedParts.Add(inhouse1);
-            product2.AssociatedParts.Add(outsourced3);
+            product2.AddAssociatedPart(inhouse1);
+            product2.AddAssociatedPart(outsourced3);
 
             // product3 associated parts
-            product3.AssociatedParts.Add(inhouse2);
+            product3.AddAssociatedPart(inhouse2);
 
             // product4 associated parts
-            product4.AssociatedParts.Add(inhouse1);
-            product4.AssociatedParts.Add(outsourced3);
+            product4.AddAssociatedPart(inhouse1);
+            product4.AddAssociatedPart(outsourced3);
 
             // product5 associated parts
-            product5.AssociatedParts.Add(inhouse3);
-            product5.AssociatedParts.Add(outsourced1);
-            product5.AssociatedParts.Add(outsourced3);
-
+            product5.AddAssociatedPart(inhouse3);
+            product5.AddAssociatedPart(outsourced1);
+            product5.AddAssociatedPart(outsourced3);
 
         }
+  
         //--------------------Product Methods---------------------//
         // add new products
         public void AddProduct(Product product)

@@ -82,6 +82,7 @@
             this.CancelBtn.TabIndex = 73;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // ModifyProduct_PartsAssociated_GridView
             // 

@@ -17,8 +17,31 @@ namespace Inventory_Management
             InitializeComponent();
         }
 
-        private void label49_Click(object sender, EventArgs e)
+        public ModifyPartForm(Inhouse inhouse)
         {
+            InitializeComponent();
+            
+            this.IDTextBox.Text = Convert.ToString(inhouse.PartID);
+            this.NameTextBox.Text = inhouse.Name;
+            this.InventoryTextBox.Text = Convert.ToString(inhouse.InStock);
+            this.PriceCostTextBox.Text = Convert.ToString(inhouse.Price);
+            this.MinTextBox.Text = Convert.ToString(inhouse.Min);
+            this.MaxTextBox.Text = Convert.ToString(inhouse.Max);
+            this.MachineIDTextBox.Text = Convert.ToString(inhouse.MachineID);
+          
+        }
+
+        public ModifyPartForm(Outsourced outsourced)
+        {
+            InitializeComponent();
+
+            this.IDTextBox.Text = Convert.ToString(outsourced.PartID);
+            this.NameTextBox.Text = outsourced.Name;
+            this.InventoryTextBox.Text = Convert.ToString(outsourced.InStock);
+            this.PriceCostTextBox.Text = Convert.ToString(outsourced.Price);
+            this.MinTextBox.Text = Convert.ToString(outsourced.Min);
+            this.MaxTextBox.Text = Convert.ToString(outsourced.Max);
+            this.MachineIDTextBox.Text = Convert.ToString(outsourced.CompanyName);
 
         }
 
@@ -98,6 +121,16 @@ namespace Inventory_Management
         }
 
         private void InHousePart_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void InHouseRadio_CheckedChanged(object sender, EventArgs e)
         {
 
         }

@@ -192,6 +192,7 @@
             this.MainParts_GridView.Name = "MainParts_GridView";
             this.MainParts_GridView.Size = new System.Drawing.Size(448, 207);
             this.MainParts_GridView.TabIndex = 14;
+           
             // 
             // MainProducts_GridView
             // 

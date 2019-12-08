@@ -79,7 +79,6 @@
             this.ID.Size = new System.Drawing.Size(18, 13);
             this.ID.TabIndex = 3;
             this.ID.Text = "ID";
-            this.ID.Click += new System.EventHandler(this.Label2_Click);
             // 
             // NameLabel
             // 
@@ -89,7 +88,6 @@
             this.NameLabel.Size = new System.Drawing.Size(35, 13);
             this.NameLabel.TabIndex = 4;
             this.NameLabel.Text = "Name";
-            this.NameLabel.Click += new System.EventHandler(this.Label3_Click);
             // 
             // Inventory
             // 
@@ -99,7 +97,6 @@
             this.Inventory.Size = new System.Drawing.Size(51, 13);
             this.Inventory.TabIndex = 5;
             this.Inventory.Text = "Inventory";
-            this.Inventory.Click += new System.EventHandler(this.Label4_Click);
             // 
             // PriceCost
             // 
@@ -109,7 +106,6 @@
             this.PriceCost.Size = new System.Drawing.Size(63, 13);
             this.PriceCost.TabIndex = 6;
             this.PriceCost.Text = "Price / Cost";
-            this.PriceCost.Click += new System.EventHandler(this.Label5_Click);
             // 
             // Max
             // 
@@ -208,6 +204,7 @@
             this.CancelBtn.TabIndex = 18;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // AddPartLabel
             // 
