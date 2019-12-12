@@ -15,7 +15,7 @@ namespace Inventory_Management
         public Main_Form()
         {
             InitializeComponent();
-
+         
             // initialize base lists of parts and products
 
             Inventory.InitializeProductsAndParts();
@@ -55,22 +55,28 @@ namespace Inventory_Management
             {
                 Inhouse inhousePart = (Inhouse)MainParts_GridView.CurrentRow.DataBoundItem;
                 new ModifyPartForm(inhousePart).ShowDialog();
+
             }
             else if (MainParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Outsourced))
             {
                 Outsourced outsourcedPart = (Outsourced)MainParts_GridView.CurrentRow.DataBoundItem;
                 new ModifyPartForm(outsourcedPart).ShowDialog();
+                
             }  
         }
 
         private void Main_Parts_Delete_Btn_Click(object sender, EventArgs e)
         {
-
+            var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
+            MainParts_GridView.Rows.RemoveAt(rowIndex);
+            Part part = (Part)MainParts_GridView.CurrentRow.DataBoundItem;
+            Inventory.RemovePart(part);
         }
 
         private void Main_Products_Search_Btn_Click(object sender, EventArgs e)
         {
-
+           // foreach (Product product in Inventory.Products)
+           // if (Main_Parts_Search_TextBox.TextLength < 
         }
 
         private void Main_Products_Add_Btn_Click(object sender, EventArgs e)
@@ -87,7 +93,11 @@ namespace Inventory_Management
 
         private void Main_Products_Delete_Btn_Click(object sender, EventArgs e)
         {
-
+            var rowIndex = MainProducts_GridView.CurrentCell.RowIndex;
+            MainProducts_GridView.Rows.RemoveAt(rowIndex);
+            Product product = (Product)MainParts_GridView.CurrentRow.DataBoundItem;
+            if (product.AssociatedParts)
         }
+
     }
 }

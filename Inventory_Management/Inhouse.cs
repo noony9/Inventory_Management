@@ -28,9 +28,6 @@ namespace Inventory_Management
             Min = min;
             Max = max;
             MachineID = machineID;
-        }
-
-
-        
+        }     
     }
 }

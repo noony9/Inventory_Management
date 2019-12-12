@@ -188,17 +188,20 @@
             // MainParts_GridView
             // 
             this.MainParts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MainParts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.MainParts_GridView.Location = new System.Drawing.Point(34, 109);
             this.MainParts_GridView.Name = "MainParts_GridView";
+            this.MainParts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MainParts_GridView.Size = new System.Drawing.Size(448, 207);
             this.MainParts_GridView.TabIndex = 14;
-           
             // 
             // MainProducts_GridView
             // 
             this.MainProducts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MainProducts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.MainProducts_GridView.Location = new System.Drawing.Point(524, 109);
             this.MainProducts_GridView.Name = "MainProducts_GridView";
+            this.MainProducts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MainProducts_GridView.Size = new System.Drawing.Size(448, 207);
             this.MainProducts_GridView.TabIndex = 15;
             // 
@@ -246,8 +249,8 @@
         private System.Windows.Forms.Button Main_Exit_Btn;
         private System.Windows.Forms.Button Main_Products_Search_Btn;
         private System.Windows.Forms.TextBox Main_Products_Search_TextBox;
-        private System.Windows.Forms.DataGridView MainParts_GridView;
-        private System.Windows.Forms.DataGridView MainProducts_GridView;
+        public System.Windows.Forms.DataGridView MainProducts_GridView;
+        public System.Windows.Forms.DataGridView MainParts_GridView;
     }
 }
 

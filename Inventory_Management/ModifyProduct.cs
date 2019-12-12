@@ -71,5 +71,6 @@ namespace Inventory_Management
         {
             this.Close();
         }
+
     }
 }

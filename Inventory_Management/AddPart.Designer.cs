@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.InHouseRadio = new System.Windows.Forms.RadioButton();
+            this.InhouseRadio = new System.Windows.Forms.RadioButton();
             this.OutsourcedRadio = new System.Windows.Forms.RadioButton();
             this.ID = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.Inventory = new System.Windows.Forms.Label();
             this.PriceCost = new System.Windows.Forms.Label();
             this.Max = new System.Windows.Forms.Label();
-            this.MachineID = new System.Windows.Forms.Label();
+            this.IdentifierLabel = new System.Windows.Forms.Label();
             this.Min = new System.Windows.Forms.Label();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -49,16 +49,17 @@
             this.AddPartLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // InHouseRadio
+            // InhouseRadio
             // 
-            this.InHouseRadio.AutoSize = true;
-            this.InHouseRadio.Location = new System.Drawing.Point(162, 29);
-            this.InHouseRadio.Name = "InHouseRadio";
-            this.InHouseRadio.Size = new System.Drawing.Size(68, 17);
-            this.InHouseRadio.TabIndex = 1;
-            this.InHouseRadio.TabStop = true;
-            this.InHouseRadio.Text = "In-House";
-            this.InHouseRadio.UseVisualStyleBackColor = true;
+            this.InhouseRadio.AutoSize = true;
+            this.InhouseRadio.Location = new System.Drawing.Point(162, 29);
+            this.InhouseRadio.Name = "InhouseRadio";
+            this.InhouseRadio.Size = new System.Drawing.Size(68, 17);
+            this.InhouseRadio.TabIndex = 1;
+            this.InhouseRadio.TabStop = true;
+            this.InhouseRadio.Text = "In-House";
+            this.InhouseRadio.UseVisualStyleBackColor = true;
+            this.InhouseRadio.CheckedChanged += new System.EventHandler(this.InhouseChecked);
             // 
             // OutsourcedRadio
             // 
@@ -70,6 +71,7 @@
             this.OutsourcedRadio.TabStop = true;
             this.OutsourcedRadio.Text = "Outsourced";
             this.OutsourcedRadio.UseVisualStyleBackColor = true;
+            this.OutsourcedRadio.CheckedChanged += new System.EventHandler(this.OutsourceChecked);
             // 
             // ID
             // 
@@ -110,25 +112,25 @@
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(167, 239);
+            this.Max.Location = new System.Drawing.Point(337, 239);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(27, 13);
             this.Max.TabIndex = 7;
             this.Max.Text = "Max";
             // 
-            // MachineID
+            // IdentifierLabel
             // 
-            this.MachineID.AutoSize = true;
-            this.MachineID.Location = new System.Drawing.Point(113, 282);
-            this.MachineID.Name = "MachineID";
-            this.MachineID.Size = new System.Drawing.Size(62, 13);
-            this.MachineID.TabIndex = 8;
-            this.MachineID.Text = "Machine ID";
+            this.IdentifierLabel.AutoSize = true;
+            this.IdentifierLabel.Location = new System.Drawing.Point(113, 282);
+            this.IdentifierLabel.Name = "IdentifierLabel";
+            this.IdentifierLabel.Size = new System.Drawing.Size(62, 13);
+            this.IdentifierLabel.TabIndex = 8;
+            this.IdentifierLabel.Text = "Machine ID";
             // 
             // Min
             // 
             this.Min.AutoSize = true;
-            this.Min.Location = new System.Drawing.Point(340, 239);
+            this.Min.Location = new System.Drawing.Point(170, 239);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(24, 13);
             this.Min.TabIndex = 9;
@@ -140,7 +142,6 @@
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 10;
-            this.IDTextBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // NameTextBox
             // 
@@ -148,7 +149,6 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(100, 20);
             this.NameTextBox.TabIndex = 11;
-            this.NameTextBox.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // InventoryTextBox
             // 
@@ -156,7 +156,6 @@
             this.InventoryTextBox.Name = "InventoryTextBox";
             this.InventoryTextBox.Size = new System.Drawing.Size(100, 20);
             this.InventoryTextBox.TabIndex = 12;
-            this.InventoryTextBox.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // PriceCostTextBox
             // 
@@ -164,7 +163,6 @@
             this.PriceCostTextBox.Name = "PriceCostTextBox";
             this.PriceCostTextBox.Size = new System.Drawing.Size(100, 20);
             this.PriceCostTextBox.TabIndex = 13;
-            this.PriceCostTextBox.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
             // 
             // MinTextBox
             // 
@@ -232,16 +230,15 @@
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.Min);
-            this.Controls.Add(this.MachineID);
+            this.Controls.Add(this.IdentifierLabel);
             this.Controls.Add(this.Max);
             this.Controls.Add(this.PriceCost);
             this.Controls.Add(this.Inventory);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.OutsourcedRadio);
-            this.Controls.Add(this.InHouseRadio);
+            this.Controls.Add(this.InhouseRadio);
             this.Name = "AddPartForm";
-            this.Load += new System.EventHandler(this.AddPart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,14 +246,14 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton InHouseRadio;
+        private System.Windows.Forms.RadioButton InhouseRadio;
         private System.Windows.Forms.RadioButton OutsourcedRadio;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label Inventory;
         private System.Windows.Forms.Label PriceCost;
         private System.Windows.Forms.Label Max;
-        private System.Windows.Forms.Label MachineID;
+        private System.Windows.Forms.Label IdentifierLabel;
         private System.Windows.Forms.Label Min;
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.TextBox NameTextBox;

@@ -50,6 +50,7 @@
             this.SearchBtn = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.DeleteBtn = new System.Windows.Forms.Button();
+            this.Min = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_PartsAssociated_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_CandidateParts_GridView)).BeginInit();
             this.SuspendLayout();
@@ -138,7 +139,7 @@
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(42, 265);
+            this.Max.Location = new System.Drawing.Point(212, 265);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(27, 13);
             this.Max.TabIndex = 65;
@@ -240,11 +241,21 @@
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
             // 
+            // Min
+            // 
+            this.Min.AutoSize = true;
+            this.Min.Location = new System.Drawing.Point(45, 265);
+            this.Min.Name = "Min";
+            this.Min.Size = new System.Drawing.Size(24, 13);
+            this.Min.TabIndex = 75;
+            this.Min.Text = "Min";
+            // 
             // ModifyProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 450);
+            this.Controls.Add(this.Min);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.ModifyProduct_PartsAssociated_GridView);
@@ -301,5 +312,6 @@
         private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Label Min;
     }
 }

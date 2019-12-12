@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Inventory_Management
 {
+
     public partial class ModifyPartForm : Form
     {
+        Main_Form mainScreen = new Main_Form();
         public ModifyPartForm()
         {
             InitializeComponent();
@@ -21,108 +23,30 @@ namespace Inventory_Management
         {
             InitializeComponent();
             
-            this.IDTextBox.Text = Convert.ToString(inhouse.PartID);
-            this.NameTextBox.Text = inhouse.Name;
-            this.InventoryTextBox.Text = Convert.ToString(inhouse.InStock);
-            this.PriceCostTextBox.Text = Convert.ToString(inhouse.Price);
-            this.MinTextBox.Text = Convert.ToString(inhouse.Min);
-            this.MaxTextBox.Text = Convert.ToString(inhouse.Max);
-            this.MachineIDTextBox.Text = Convert.ToString(inhouse.MachineID);
-          
+            IDTextBox.Text = Convert.ToString(inhouse.PartID);
+            NameTextBox.Text = inhouse.Name;
+            InventoryTextBox.Text = Convert.ToString(inhouse.InStock);
+            PriceCostTextBox.Text = Convert.ToString(inhouse.Price);
+            MinTextBox.Text = Convert.ToString(inhouse.Min);
+            MaxTextBox.Text = Convert.ToString(inhouse.Max);
+            IdentifierLabelTextBox.Text = Convert.ToString(inhouse.MachineID);
+            IdentifierLabel.Text = "Machine ID";
+            InhouseRadio.Checked = true;
         }
 
         public ModifyPartForm(Outsourced outsourced)
         {
             InitializeComponent();
 
-            this.IDTextBox.Text = Convert.ToString(outsourced.PartID);
-            this.NameTextBox.Text = outsourced.Name;
-            this.InventoryTextBox.Text = Convert.ToString(outsourced.InStock);
-            this.PriceCostTextBox.Text = Convert.ToString(outsourced.Price);
-            this.MinTextBox.Text = Convert.ToString(outsourced.Min);
-            this.MaxTextBox.Text = Convert.ToString(outsourced.Max);
-            this.MachineIDTextBox.Text = Convert.ToString(outsourced.CompanyName);
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Min_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MachineID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Max_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PriceCost_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Inventory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Name_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OutsourcedPart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InHousePart_CheckedChanged(object sender, EventArgs e)
-        {
-
+            IDTextBox.Text = Convert.ToString(outsourced.PartID);
+            NameTextBox.Text = outsourced.Name;
+            InventoryTextBox.Text = Convert.ToString(outsourced.InStock);
+            PriceCostTextBox.Text = Convert.ToString(outsourced.Price);
+            MinTextBox.Text = Convert.ToString(outsourced.Min);
+            MaxTextBox.Text = Convert.ToString(outsourced.Max); 
+            IdentifierLabelTextBox.Text = Convert.ToString(outsourced.CompanyName);
+            IdentifierLabel.Text = "Company Name";
+            OutsourcedRadio.Checked = true;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -130,9 +54,34 @@ namespace Inventory_Management
             this.Close();
         }
 
-        private void InHouseRadio_CheckedChanged(object sender, EventArgs e)
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
+            if (InhouseRadio.Checked)
+            {
+                InhouseRadio.Checked = true;
+                Inhouse inhousePart = new Inhouse(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceCostTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text), int.Parse(IdentifierLabelTextBox.Text));
+                Inventory_Management.Inventory.UpdatePart(int.Parse(IDTextBox.Text), inhousePart);  
+            }  
+            else if (OutsourcedRadio.Checked)
+            {
+                OutsourcedRadio.Checked = true;
+                Outsourced outsourcedPart = new Outsourced(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceCostTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text), IdentifierLabelTextBox.Text);
+                Inventory_Management.Inventory.UpdatePart(int.Parse(IDTextBox.Text), outsourcedPart);
+            }
+            Close();
+            mainScreen.MainParts_GridView.Update();
+            mainScreen.MainParts_GridView.Refresh();
+           
+        }
 
+        private void InhouseChecked(object sender, EventArgs e)
+        {
+            IdentifierLabel.Text = "Machine ID";
+        }
+
+        private void OutsourcedChecked(object sender, EventArgs e)
+        {
+            IdentifierLabel.Text = "Company Name";
         }
     }
 }

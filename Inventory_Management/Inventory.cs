@@ -82,13 +82,13 @@ namespace Inventory_Management
   
         //--------------------Product Methods---------------------//
         // add new products
-        public void AddProduct(Product product)
+        public static void AddProduct(Product product)
         {
             Products.Add(product);
         }
 
         // iterate through Products list and remove products if the productID is a match
-        public bool RemoveProduct(Product productID) // bind to remove button
+        public static bool RemoveProduct(Product productID) // bind to remove button
         {
             bool check = false;
             foreach (Product p in Products)
@@ -105,7 +105,7 @@ namespace Inventory_Management
         }
 
         // iterate through Products list and return it if found, else display not found
-        public Product LookupProduct(int productID)  //bind to search button
+        public static Product LookupProduct(int productID)  //bind to search button
         {
             foreach (Product p in Products)
             {
@@ -119,7 +119,7 @@ namespace Inventory_Management
         }
         
         // iterate through Products list and update Product fields with user arguments
-        public void UpdateProduct(int productID, Product product) // bind to save button
+        public static void UpdateProduct(int productID, Product product) // bind to save button
         {
             foreach(Product p in Products)
             {
@@ -135,13 +135,13 @@ namespace Inventory_Management
             }
         }
         //--------------------Part Methods---------------------//
-        public void AddPart(Part part)
+        public static void AddPart(Part part)
         {
             Parts.Add(part);
         }
 
         // iterate through Parts list and remove products if the partID is a match
-        public bool RemovePart(Part partID) // bind to remove button
+        public static bool RemovePart(Part partID) // bind to remove button
         {
             bool check = false;
             foreach (Part p in Parts)
@@ -158,7 +158,7 @@ namespace Inventory_Management
         }
 
         // iterate through Parts list and return it if found, else display not found
-        public Part LookupPart(int partID)  //bind to search button
+        public static Part LookupPart(int partID)  //bind to search button
         {
             foreach (Part p in Parts)
             {
@@ -172,12 +172,13 @@ namespace Inventory_Management
         }
 
         // iterate through Parts list and update Part fields with user arguments
-        public void UpdatePart(int partID, Part part) // bind to save button
+        public static void UpdatePart(int partID, Part part) // bind to save button
         {
             foreach (Part p in Parts)
             {
                 if (partID == p.PartID)
                 {
+                    p.PartID = part.PartID;
                     p.Name = part.Name;
                     p.Price = part.Price;
                     p.InStock = part.InStock;

@@ -15,36 +15,22 @@ namespace Inventory_Management
         public AddPartForm()
         {
             InitializeComponent();
-        }
-
-        private void AddPart_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
+            InhouseRadio.Checked = true;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void InhouseChecked(object sender, EventArgs e)
+        {
+            IdentifierLabel.Text = "Machine ID";
+        }
+
+        private void OutsourceChecked(object sender, EventArgs e)
+        {
+            IdentifierLabel.Text = "Company Name";
         }
     }
 }

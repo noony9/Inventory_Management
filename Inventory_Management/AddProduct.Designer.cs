@@ -171,7 +171,7 @@
             // Min
             // 
             this.Min.AutoSize = true;
-            this.Min.Location = new System.Drawing.Point(236, 277);
+            this.Min.Location = new System.Drawing.Point(66, 277);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(24, 13);
             this.Min.TabIndex = 31;
@@ -180,7 +180,7 @@
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(63, 277);
+            this.Max.Location = new System.Drawing.Point(233, 277);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(27, 13);
             this.Max.TabIndex = 30;
