@@ -11,14 +11,6 @@ namespace Inventory_Management
 {
     public class Product
     {
-        // Fields
-        private int productID;
-        private string name;
-        private decimal price;
-        private int inStock;
-        private int min;
-        private int max;
-
         // Constructor
         public Product() { }
 
@@ -34,17 +26,10 @@ namespace Inventory_Management
         }
 
         // Properties
-        public static BindingList<Part> AssociatedParts = new BindingList<Part>();
+        public BindingList<Part> AssociatedParts = new BindingList<Part>();
         public int ProductID { get; set; }
         public string Name { get; set; }
-        public decimal Price
-        {
-            get { return price; }
-            set
-            {
-                price = (decimal)value;
-            }
-        }
+        public decimal Price { get; set; }
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
@@ -79,5 +64,6 @@ namespace Inventory_Management
             }
             return null;
         }
+
     }
 }

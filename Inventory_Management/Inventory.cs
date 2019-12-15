@@ -19,7 +19,24 @@ namespace Inventory_Management
  
         public static void InitializeProductsAndParts()
         {
-           // Create products
+            // Create a new BindingList of parts
+            BindingList<Part> partList = new BindingList<Part>();
+            Inventory.Parts = partList;
+
+            BindingList<Product> productList = new BindingList<Product>();
+            Inventory.Products = productList;
+
+            // Ensure new parts and products can be removed and added
+            partList.AllowRemove = true;
+            productList.AllowRemove = true;
+            partList.AllowNew = true;
+            productList.AllowNew = true;
+
+            // Create events when parts are added to the list
+            partList.RaiseListChangedEvents = true;
+            productList.RaiseListChangedEvents = true;
+
+            // Create products
             Product product1 = new Product(001, "Yellow Card", 99.00m, 5, 1, 10);
             Product product2 = new Product(002, "Green Card", 82.00m, 15, 1, 10);
             Product product3 = new Product(003, "Blue Card", 54.10m, 28, 1, 10);
@@ -27,30 +44,30 @@ namespace Inventory_Management
             Product product5 = new Product(005, "Red Card", 20.05m, 5, 1, 10);
 
             // Create inhouse parts
-            Part inhouse1 = new Inhouse(001, "Card Holder", 10.00m, 115, 1, 10, 7777);
-            Part inhouse2 = new Inhouse(001, "Magnet", 8.00m, 430, 1, 10, 7778);
-            Part inhouse3 = new Inhouse(001, "Wallet", 16.00m, 66, 1, 10, 7779);
+            Part inhouse1 = new Inhouse(111, "Card Holder", 10.00m, 115, 1, 10, 7777);
+            Part inhouse2 = new Inhouse(112, "Magnet", 8.00m, 430, 1, 10, 7778);
+            Part inhouse3 = new Inhouse(113, "Wallet", 16.00m, 66, 1, 10, 7779);
 
             // Create outsourced parts
-            Part outsourced1 = new Outsourced(001, "Glue", 17.00m, 115, 1, 10, "Company A");
-            Part outsourced2 = new Outsourced(001, "Thread", 21.20m, 115, 1, 10, "Company B");
-            Part outsourced3 = new Outsourced(001, "Leather Straps", 36.99m, 115, 1, 10, "Company B");
+            Part outsourced1 = new Outsourced(211, "Glue", 17.00m, 115, 1, 10, "Company A");
+            Part outsourced2 = new Outsourced(212, "Thread", 21.20m, 115, 1, 10, "Company B");
+            Part outsourced3 = new Outsourced(213, "Leather Straps", 36.99m, 115, 1, 10, "Company B");
 
             // Add products to Products list
 
-            Products.Add(product1);
-            Products.Add(product2);
-            Products.Add(product3);
-            Products.Add(product4);
-            Products.Add(product5);
+            productList.Add(product1);
+            productList.Add(product2);
+            productList.Add(product3);
+            productList.Add(product4);
+            productList.Add(product5);
 
             // Add parts to Parts list
-            Parts.Add(inhouse1);
-            Parts.Add(inhouse2);
-            Parts.Add(inhouse3);
-            Parts.Add(outsourced1);
-            Parts.Add(outsourced2);
-            Parts.Add(outsourced3);
+            partList.Add(inhouse1);
+            partList.Add(inhouse2);
+            partList.Add(inhouse3);
+            partList.Add(outsourced1);
+            partList.Add(outsourced2);
+            partList.Add(outsourced3);
 
             // Add parts to products associated list
 

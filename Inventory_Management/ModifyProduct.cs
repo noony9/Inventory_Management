@@ -12,59 +12,19 @@ namespace Inventory_Management
 {
     public partial class ModifyProductForm : Form
     {
-        public ModifyProductForm()
+        public ModifyProductForm(Product product)
         {
             InitializeComponent();
-        }
 
-        private void ModifyPartLabel_Click(object sender, EventArgs e)
-        {
+            IDTextBox.Text = Convert.ToString(product.ProductID);
+            NameTextBox.Text = product.Name;
+            InventoryTextBox.Text = Convert.ToString(product.InStock);
+            PriceTextBox.Text = Convert.ToString(product.Price);
+            MinTextBox.Text = Convert.ToString(product.Min);
+            MaxTextBox.Text = Convert.ToString(product.Max);
 
-        }
-
-        private void InHousePart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OutsourcedPart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Name_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Inventory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ModifyProductForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void IDTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            ModifyProduct_CandidateParts_GridView.DataSource = Inventory.Parts;
+            ModifyProduct_PartsAssociated_GridView.DataSource = product.AssociatedParts;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

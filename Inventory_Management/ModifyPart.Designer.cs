@@ -40,7 +40,7 @@
             this.IdentifierLabel = new System.Windows.Forms.Label();
             this.Min = new System.Windows.Forms.Label();
             this.PriceCost = new System.Windows.Forms.Label();
-            this.Inventory = new System.Windows.Forms.Label();
+            this.InventoryLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.OutsourcedRadio = new System.Windows.Forms.RadioButton();
@@ -144,14 +144,14 @@
             this.PriceCost.TabIndex = 42;
             this.PriceCost.Text = "Price / Cost";
             // 
-            // Inventory
+            // InventoryLabel
             // 
-            this.Inventory.AutoSize = true;
-            this.Inventory.Location = new System.Drawing.Point(150, 162);
-            this.Inventory.Name = "Inventory";
-            this.Inventory.Size = new System.Drawing.Size(51, 13);
-            this.Inventory.TabIndex = 41;
-            this.Inventory.Text = "Inventory";
+            this.InventoryLabel.AutoSize = true;
+            this.InventoryLabel.Location = new System.Drawing.Point(150, 162);
+            this.InventoryLabel.Name = "InventoryLabel";
+            this.InventoryLabel.Size = new System.Drawing.Size(51, 13);
+            this.InventoryLabel.TabIndex = 41;
+            this.InventoryLabel.Text = "Inventory";
             // 
             // NameLabel
             // 
@@ -233,7 +233,7 @@
             this.Controls.Add(this.IdentifierLabel);
             this.Controls.Add(this.Min);
             this.Controls.Add(this.PriceCost);
-            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.InventoryLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.OutsourcedRadio);
@@ -259,7 +259,7 @@
         private System.Windows.Forms.Label IdentifierLabel;
         private System.Windows.Forms.Label Min;
         private System.Windows.Forms.Label PriceCost;
-        private System.Windows.Forms.Label Inventory;
+        private System.Windows.Forms.Label InventoryLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.RadioButton OutsourcedRadio;

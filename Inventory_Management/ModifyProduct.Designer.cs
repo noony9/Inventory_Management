@@ -40,7 +40,7 @@
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.Max = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.Label();
-            this.Inventory = new System.Windows.Forms.Label();
+            this.InventoryLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.Parts_Associated_Label = new System.Windows.Forms.Label();
@@ -64,7 +64,6 @@
             this.ModifyProductLabel.Size = new System.Drawing.Size(142, 25);
             this.ModifyProductLabel.TabIndex = 53;
             this.ModifyProductLabel.Text = "Modify Product";
-            this.ModifyProductLabel.Click += new System.EventHandler(this.ModifyPartLabel_Click);
             // 
             // SaveBtn
             // 
@@ -134,7 +133,6 @@
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 66;
-            this.IDTextBox.TextChanged += new System.EventHandler(this.IDTextBox_TextChanged);
             // 
             // Max
             // 
@@ -154,14 +152,14 @@
             this.Price.TabIndex = 64;
             this.Price.Text = "Price";
             // 
-            // Inventory
+            // InventoryLabel
             // 
-            this.Inventory.AutoSize = true;
-            this.Inventory.Location = new System.Drawing.Point(40, 190);
-            this.Inventory.Name = "Inventory";
-            this.Inventory.Size = new System.Drawing.Size(51, 13);
-            this.Inventory.TabIndex = 63;
-            this.Inventory.Text = "Inventory";
+            this.InventoryLabel.AutoSize = true;
+            this.InventoryLabel.Location = new System.Drawing.Point(40, 190);
+            this.InventoryLabel.Name = "InventoryLabel";
+            this.InventoryLabel.Size = new System.Drawing.Size(51, 13);
+            this.InventoryLabel.TabIndex = 63;
+            this.InventoryLabel.Text = "Inventory";
             // 
             // NameLabel
             // 
@@ -267,7 +265,7 @@
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.Max);
             this.Controls.Add(this.Price);
-            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.InventoryLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.Parts_Associated_Label);
@@ -280,7 +278,6 @@
             this.Controls.Add(this.ModifyProductLabel);
             this.Name = "ModifyProductForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.ModifyProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_PartsAssociated_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_CandidateParts_GridView)).EndInit();
             this.ResumeLayout(false);
@@ -302,7 +299,7 @@
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.Label Max;
         private System.Windows.Forms.Label Price;
-        private System.Windows.Forms.Label Inventory;
+        private System.Windows.Forms.Label InventoryLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label Parts_Associated_Label;

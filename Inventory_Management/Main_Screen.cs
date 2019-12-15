@@ -88,15 +88,23 @@ namespace Inventory_Management
         private void Main_Products_Modify_Btn_Click(object sender, EventArgs e)
         {
             // bring up instance of Modfy product screen
-            new ModifyProductForm().ShowDialog();
+            Product product = (Product)MainProducts_GridView.CurrentRow.DataBoundItem;
+            new ModifyProductForm(product).ShowDialog();
         }
 
         private void Main_Products_Delete_Btn_Click(object sender, EventArgs e)
         {
             var rowIndex = MainProducts_GridView.CurrentCell.RowIndex;
-            MainProducts_GridView.Rows.RemoveAt(rowIndex);
-            Product product = (Product)MainParts_GridView.CurrentRow.DataBoundItem;
-            if (product.AssociatedParts)
+            Product product = (Product)MainProducts_GridView.CurrentRow.DataBoundItem;
+            if (product.AssociatedParts.Count > 0)
+            {
+                MessageBox.Show("Cannot delete a product that has associated parts.  Remove assosicated parts prior to attempting to remove a product.");
+            }
+            else
+            {
+                Inventory.RemoveProduct(product);
+                MainProducts_GridView.Rows.RemoveAt(rowIndex);
+            }
         }
 
     }
