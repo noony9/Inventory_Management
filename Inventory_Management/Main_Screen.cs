@@ -38,7 +38,27 @@ namespace Inventory_Management
 
         private void Main_Parts_Search_Btn_Click(object sender, EventArgs e)
         {
-
+            if (Main_Parts_Search_TextBox.TextLength < 0)
+            {
+                return;
+            }
+            else
+            {
+                Part part = Inventory.LookupPart(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
+                foreach (DataGridViewRow row in MainParts_GridView.Rows)
+                {
+                    Part p = (Part)row.DataBoundItem;
+                    if (p.PartID == part.PartID)
+                    {
+                        row.Selected = true;
+                        return;
+                    }
+                    else
+                    {
+                        row.Selected = false;
+                    }
+                }
+            }
         }
 
         private void Main_Parts_Add_Btn_Click(object sender, EventArgs e)
@@ -71,8 +91,28 @@ namespace Inventory_Management
 
         private void Main_Products_Search_Btn_Click(object sender, EventArgs e)
         {
-           // foreach (Product product in Inventory.Products)
-           // if (Main_Parts_Search_TextBox.TextLength < 
+
+            if (Main_Products_Search_TextBox.TextLength < 0)
+            {
+                return;
+            }
+            else
+            {
+                Product product = Inventory.LookupProduct(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
+                foreach (DataGridViewRow row in MainProducts_GridView.Rows)
+                {
+                    Product prod = (Product)row.DataBoundItem;
+                    if (prod.ProductID == product.ProductID)
+                    {
+                        row.Selected = true;
+                        return;
+                    }
+                    else
+                    {
+                        row.Selected = false;
+                    }
+                }
+            }
         }
 
         private void Main_Products_Add_Btn_Click(object sender, EventArgs e)

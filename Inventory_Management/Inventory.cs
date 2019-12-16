@@ -137,7 +137,7 @@ namespace Inventory_Management
                 }
                 else
                 {
-                    MessageBox.Show("Product not found");
+                    break;
                 }
             }
             return null;
@@ -194,7 +194,10 @@ namespace Inventory_Management
                 {
                     return p;
                 }
-                else MessageBox.Show("Part not found");
+                else
+                {
+                    break;
+                }
             }
             return null;
         }
