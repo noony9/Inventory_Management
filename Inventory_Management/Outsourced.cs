@@ -11,22 +11,24 @@ namespace Inventory_Management
 {
     public class Outsourced : Part
     {
-        // Fields
-        private string companyName;
-
+        private string _companyName;
         // Properties
-        public string CompanyName { get; set; }
+        public string CompanyName
+        {
+            get { return _companyName; }
+            set { _companyName = value; }
+        }
 
         // Constructor
         public Outsourced(int partID, string name, decimal price, int inStock, int min, int max, string companyName)
         {
-            PartID = partID;
-            Name = name;
-            Price = price;
-            InStock = inStock;
-            Min = min;
-            Max = max;
-            CompanyName = companyName;
+            _partID = partID;
+            _name = name;
+            _price = price;
+            _inStock = inStock;
+            _min = min;
+            _max = max;
+            _companyName = companyName;
         }
     }
 }

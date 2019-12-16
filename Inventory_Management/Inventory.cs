@@ -19,6 +19,7 @@ namespace Inventory_Management
  
         public static void InitializeProductsAndParts()
         {
+            /*
             // Create a new BindingList of parts
             BindingList<Part> partList = new BindingList<Part>();
             Inventory.Parts = partList;
@@ -35,6 +36,7 @@ namespace Inventory_Management
             // Create events when parts are added to the list
             partList.RaiseListChangedEvents = true;
             productList.RaiseListChangedEvents = true;
+            */
 
             // Create products
             Product product1 = new Product(001, "Yellow Card", 99.00m, 5, 1, 10);
@@ -55,19 +57,19 @@ namespace Inventory_Management
 
             // Add products to Products list
 
-            productList.Add(product1);
-            productList.Add(product2);
-            productList.Add(product3);
-            productList.Add(product4);
-            productList.Add(product5);
+            Products.Add(product1);
+            Products.Add(product2);
+            Products.Add(product3);
+            Products.Add(product4);
+            Products.Add(product5);
 
             // Add parts to Parts list
-            partList.Add(inhouse1);
-            partList.Add(inhouse2);
-            partList.Add(inhouse3);
-            partList.Add(outsourced1);
-            partList.Add(outsourced2);
-            partList.Add(outsourced3);
+            Parts.Add(inhouse1);
+            Parts.Add(inhouse2);
+            Parts.Add(inhouse3);
+            Parts.Add(outsourced1);
+            Parts.Add(outsourced2);
+            Parts.Add(outsourced3);
 
             // Add parts to products associated list
 
@@ -105,18 +107,21 @@ namespace Inventory_Management
         }
 
         // iterate through Products list and remove products if the productID is a match
-        public static bool RemoveProduct(Product productID) // bind to remove button
+        public static bool RemoveProduct(int productID) // bind to remove button
         {
             bool check = false;
             foreach (Product p in Products)
             {
-                if (productID == p)
+                if (productID == p.ProductID)
                 {
                     Products.Remove(p);
                     check = true;
                 }
-                else MessageBox.Show("Product does not Exist");
-                check = false;
+                else
+                {
+                    MessageBox.Show("Product does not Exist");
+                    check = false;
+                }
             }
             return check;
         }
@@ -130,7 +135,10 @@ namespace Inventory_Management
                 {
                     return p;
                 }
-                else MessageBox.Show("Product not found");
+                else
+                {
+                    MessageBox.Show("Product not found");
+                }
             }
             return null;
         }
@@ -147,8 +155,8 @@ namespace Inventory_Management
                     p.InStock = product.InStock;
                     p.Min = product.Min;
                     p.Max = product.Max;
+                    return;
                 }
-                else MessageBox.Show("Product not found");
             }
         }
         //--------------------Part Methods---------------------//
@@ -168,8 +176,11 @@ namespace Inventory_Management
                     Parts.Remove(p);
                     check = true;
                 }
-                else MessageBox.Show("Part does not Exist");
-                check = false;
+                else
+                {
+                    MessageBox.Show("Part does not Exist");
+                    check = false;
+                }
             }
             return check;
         }
@@ -193,7 +204,7 @@ namespace Inventory_Management
         {
             foreach (Part p in Parts)
             {
-                if (partID == p.PartID)
+                if (p.PartID == partID)
                 {
                     p.PartID = part.PartID;
                     p.Name = part.Name;
@@ -201,8 +212,8 @@ namespace Inventory_Management
                     p.InStock = part.InStock;
                     p.Min = part.Min;
                     p.Max = part.Max;
+                    return;
                 }
-                else MessageBox.Show("Part not found");
             }
         }
     }

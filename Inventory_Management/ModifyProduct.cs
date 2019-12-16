@@ -32,5 +32,12 @@ namespace Inventory_Management
             this.Close();
         }
 
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+
+            Product product = new Product(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text));
+            Inventory.UpdateProduct(int.Parse(IDTextBox.Text), product);
+            this.Close();
+        }
     }
 }

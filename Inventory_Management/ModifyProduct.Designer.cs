@@ -73,6 +73,7 @@
             this.SaveBtn.TabIndex = 74;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // CancelBtn
             // 

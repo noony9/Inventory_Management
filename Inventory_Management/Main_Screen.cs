@@ -15,7 +15,6 @@ namespace Inventory_Management
         public Main_Form()
         {
             InitializeComponent();
-         
             // initialize base lists of parts and products
 
             Inventory.InitializeProductsAndParts();
@@ -28,7 +27,7 @@ namespace Inventory_Management
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -55,7 +54,6 @@ namespace Inventory_Management
             {
                 Inhouse inhousePart = (Inhouse)MainParts_GridView.CurrentRow.DataBoundItem;
                 new ModifyPartForm(inhousePart).ShowDialog();
-
             }
             else if (MainParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Outsourced))
             {
@@ -69,8 +67,6 @@ namespace Inventory_Management
         {
             var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
             MainParts_GridView.Rows.RemoveAt(rowIndex);
-            Part part = (Part)MainParts_GridView.CurrentRow.DataBoundItem;
-            Inventory.RemovePart(part);
         }
 
         private void Main_Products_Search_Btn_Click(object sender, EventArgs e)
@@ -94,7 +90,6 @@ namespace Inventory_Management
 
         private void Main_Products_Delete_Btn_Click(object sender, EventArgs e)
         {
-            var rowIndex = MainProducts_GridView.CurrentCell.RowIndex;
             Product product = (Product)MainProducts_GridView.CurrentRow.DataBoundItem;
             if (product.AssociatedParts.Count > 0)
             {
@@ -102,7 +97,7 @@ namespace Inventory_Management
             }
             else
             {
-                Inventory.RemoveProduct(product);
+                var rowIndex = MainProducts_GridView.CurrentCell.RowIndex;
                 MainProducts_GridView.Rows.RemoveAt(rowIndex);
             }
         }
