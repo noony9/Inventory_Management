@@ -11,6 +11,7 @@ namespace Inventory_Management
 {
     public class Inventory
     {
+        Main_Form mainScreen = new Main_Form();
         // Properties
         public static BindingList<Product> Products = new BindingList<Product>();
         public static BindingList<Part> Parts = new BindingList<Part>();
@@ -98,12 +99,31 @@ namespace Inventory_Management
             product5.AddAssociatedPart(outsourced3);
 
         }
-  
+
+        public static void RefreshLists()
+        {
+            var bsPart = new BindingSource();
+            bsPart.DataSource = Inventory.Parts;
+
+
+            // bind base list of products to DataGridView using a DataSource intermediary
+            var bsProduct = new BindingSource();
+            bsProduct.DataSource = Inventory.Products;
+
+
+            bsPart.DataSource = null;
+            bsPart.DataSource = Inventory.Parts;
+
+            bsProduct.DataSource = null;
+            bsProduct.DataSource = Inventory.Products;
+        }
+
         //--------------------Product Methods---------------------//
         // add new products
         public static void AddProduct(Product product)
         {
             Products.Add(product);
+            RefreshLists();
         }
 
         // iterate through Products list and remove products if the productID is a match
@@ -131,13 +151,9 @@ namespace Inventory_Management
         {
             foreach (Product p in Products)
             {
-                if (productID == p.ProductID)
+                if (p.ProductID == productID)
                 {
                     return p;
-                }
-                else
-                {
-                    break;
                 }
             }
             return null;
@@ -160,9 +176,11 @@ namespace Inventory_Management
             }
         }
         //--------------------Part Methods---------------------//
+
         public static void AddPart(Part part)
         {
             Parts.Add(part);
+            RefreshLists();
         }
 
         // iterate through Parts list and remove products if the partID is a match
@@ -190,13 +208,9 @@ namespace Inventory_Management
         {
             foreach (Part p in Parts)
             {
-                if (partID == p.PartID)
+                if (p.PartID == partID)
                 {
                     return p;
-                }
-                else
-                {
-                    break;
                 }
             }
             return null;

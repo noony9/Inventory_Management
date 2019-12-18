@@ -19,10 +19,24 @@ namespace Inventory_Management
 
             Inventory.InitializeProductsAndParts();
 
-            // bind base list of parts and products to dataGridView
+            // bind base list of parts to DataGridView using a DataSource intermediary
+            var bsPart = new BindingSource();
+            bsPart.DataSource = Inventory.Parts;
+            MainParts_GridView.DataSource = bsPart;
 
-            MainParts_GridView.DataSource = Inventory.Parts;
-            MainProducts_GridView.DataSource = Inventory.Products;
+
+            // bind base list of products to DataGridView using a DataSource intermediary
+            var bsProduct = new BindingSource();
+            bsProduct.DataSource = Inventory.Products;
+            MainProducts_GridView.DataSource = bsProduct;
+
+            
+            bsPart.DataSource = null;
+            bsPart.DataSource = Inventory.Parts;
+
+            bsProduct.DataSource = null;
+            bsProduct.DataSource = Inventory.Products;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,6 +50,8 @@ namespace Inventory_Management
             this.Close();
         }
 
+        // ---------------Part methods------------------//
+
         private void Main_Parts_Search_Btn_Click(object sender, EventArgs e)
         {
             if (Main_Parts_Search_TextBox.TextLength < 0)
@@ -44,11 +60,13 @@ namespace Inventory_Management
             }
             else
             {
-                Part part = Inventory.LookupPart(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
+               
                 foreach (DataGridViewRow row in MainParts_GridView.Rows)
                 {
-                    Part p = (Part)row.DataBoundItem;
-                    if (p.PartID == part.PartID)
+                    Part part = (Part)row.DataBoundItem;
+                    Part userEntry = Inventory.LookupPart(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
+
+                    if (userEntry.PartID == part.PartID)
                     {
                         row.Selected = true;
                         return;
@@ -57,6 +75,7 @@ namespace Inventory_Management
                     {
                         row.Selected = false;
                     }
+                    
                 }
             }
         }
@@ -64,7 +83,8 @@ namespace Inventory_Management
         private void Main_Parts_Add_Btn_Click(object sender, EventArgs e)
         {
             // bring up instance of Add part screen
-            new AddPartForm().ShowDialog();
+            AddPartForm addPartForm = new AddPartForm();
+            addPartForm.Show();
         }
 
         private void Main_Parts_Modify_Btn_Click(object sender, EventArgs e)
@@ -89,6 +109,7 @@ namespace Inventory_Management
             MainParts_GridView.Rows.RemoveAt(rowIndex);
         }
 
+        // ---------------Product methods------------------//
         private void Main_Products_Search_Btn_Click(object sender, EventArgs e)
         {
 
@@ -98,11 +119,13 @@ namespace Inventory_Management
             }
             else
             {
-                Product product = Inventory.LookupProduct(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
+
                 foreach (DataGridViewRow row in MainProducts_GridView.Rows)
                 {
-                    Product prod = (Product)row.DataBoundItem;
-                    if (prod.ProductID == product.ProductID)
+                    Product product = (Product)row.DataBoundItem;
+                    Product userEntry = Inventory.LookupProduct(Convert.ToInt32(Main_Products_Search_TextBox.Text));
+
+                    if (userEntry.ProductID == product.ProductID)
                     {
                         row.Selected = true;
                         return;
@@ -111,6 +134,7 @@ namespace Inventory_Management
                     {
                         row.Selected = false;
                     }
+
                 }
             }
         }
@@ -118,7 +142,8 @@ namespace Inventory_Management
         private void Main_Products_Add_Btn_Click(object sender, EventArgs e)
         {
             // bring up instance of Add product screen
-            new AddProductForm().ShowDialog();
+            AddProductForm addProductForm = new AddProductForm();
+            addProductForm.Show();
         }
 
         private void Main_Products_Modify_Btn_Click(object sender, EventArgs e)

@@ -32,7 +32,7 @@
             this.OutsourcedRadio = new System.Windows.Forms.RadioButton();
             this.ID = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.Inventory = new System.Windows.Forms.Label();
+            this.InventoryLabel = new System.Windows.Forms.Label();
             this.PriceCost = new System.Windows.Forms.Label();
             this.Max = new System.Windows.Forms.Label();
             this.IdentifierLabel = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.PriceCostTextBox = new System.Windows.Forms.TextBox();
             this.MinTextBox = new System.Windows.Forms.TextBox();
             this.MaxTextBox = new System.Windows.Forms.TextBox();
-            this.MachineIDTextBox = new System.Windows.Forms.TextBox();
+            this.IdentifierLabelTextBox = new System.Windows.Forms.TextBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.AddPartLabel = new System.Windows.Forms.Label();
@@ -91,14 +91,14 @@
             this.NameLabel.TabIndex = 4;
             this.NameLabel.Text = "Name";
             // 
-            // Inventory
+            // InventoryLabel
             // 
-            this.Inventory.AutoSize = true;
-            this.Inventory.Location = new System.Drawing.Point(143, 164);
-            this.Inventory.Name = "Inventory";
-            this.Inventory.Size = new System.Drawing.Size(51, 13);
-            this.Inventory.TabIndex = 5;
-            this.Inventory.Text = "Inventory";
+            this.InventoryLabel.AutoSize = true;
+            this.InventoryLabel.Location = new System.Drawing.Point(143, 164);
+            this.InventoryLabel.Name = "InventoryLabel";
+            this.InventoryLabel.Size = new System.Drawing.Size(51, 13);
+            this.InventoryLabel.TabIndex = 5;
+            this.InventoryLabel.Text = "Inventory";
             // 
             // PriceCost
             // 
@@ -178,12 +178,12 @@
             this.MaxTextBox.Size = new System.Drawing.Size(113, 20);
             this.MaxTextBox.TabIndex = 15;
             // 
-            // MachineIDTextBox
+            // IdentifierLabelTextBox
             // 
-            this.MachineIDTextBox.Location = new System.Drawing.Point(200, 279);
-            this.MachineIDTextBox.Name = "MachineIDTextBox";
-            this.MachineIDTextBox.Size = new System.Drawing.Size(151, 20);
-            this.MachineIDTextBox.TabIndex = 16;
+            this.IdentifierLabelTextBox.Location = new System.Drawing.Point(200, 279);
+            this.IdentifierLabelTextBox.Name = "IdentifierLabelTextBox";
+            this.IdentifierLabelTextBox.Size = new System.Drawing.Size(151, 20);
+            this.IdentifierLabelTextBox.TabIndex = 16;
             // 
             // SaveBtn
             // 
@@ -193,6 +193,7 @@
             this.SaveBtn.TabIndex = 17;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // CancelBtn
             // 
@@ -222,7 +223,7 @@
             this.Controls.Add(this.AddPartLabel);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.SaveBtn);
-            this.Controls.Add(this.MachineIDTextBox);
+            this.Controls.Add(this.IdentifierLabelTextBox);
             this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.MinTextBox);
             this.Controls.Add(this.PriceCostTextBox);
@@ -233,7 +234,7 @@
             this.Controls.Add(this.IdentifierLabel);
             this.Controls.Add(this.Max);
             this.Controls.Add(this.PriceCost);
-            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.InventoryLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.OutsourcedRadio);
@@ -250,7 +251,7 @@
         private System.Windows.Forms.RadioButton OutsourcedRadio;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.Label Inventory;
+        private System.Windows.Forms.Label InventoryLabel;
         private System.Windows.Forms.Label PriceCost;
         private System.Windows.Forms.Label Max;
         private System.Windows.Forms.Label IdentifierLabel;
@@ -261,7 +262,7 @@
         private System.Windows.Forms.TextBox PriceCostTextBox;
         private System.Windows.Forms.TextBox MinTextBox;
         private System.Windows.Forms.TextBox MaxTextBox;
-        private System.Windows.Forms.TextBox MachineIDTextBox;
+        private System.Windows.Forms.TextBox IdentifierLabelTextBox;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Label AddPartLabel;

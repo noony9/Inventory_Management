@@ -32,5 +32,26 @@ namespace Inventory_Management
         {
             IdentifierLabel.Text = "Company Name";
         }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            if (InhouseRadio.Checked)
+            {
+
+                InhouseRadio.Checked = true;
+                Inhouse inhousePart = new Inhouse(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceCostTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text), int.Parse(IdentifierLabelTextBox.Text));
+                Inventory.AddPart(inhousePart);
+
+            }
+            else
+            {
+                OutsourcedRadio.Checked = true;
+                Outsourced outsourcedPart = new Outsourced(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceCostTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text), IdentifierLabelTextBox.Text);
+                Inventory.AddPart(outsourcedPart);
+
+            }
+            Inventory.RefreshLists();
+            Close();
+        }
     }
 }

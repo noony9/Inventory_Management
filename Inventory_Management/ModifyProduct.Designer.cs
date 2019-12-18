@@ -47,8 +47,8 @@
             this.Candidate_Parts_Label = new System.Windows.Forms.Label();
             this.ModifyProduct_CandidateParts_GridView = new System.Windows.Forms.DataGridView();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.SearchBtn = new System.Windows.Forms.Button();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.ModifyProduct_Search_Btn = new System.Windows.Forms.Button();
+            this.ModifyProduct_Search_TextBox = new System.Windows.Forms.TextBox();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.Min = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_PartsAssociated_GridView)).BeginInit();
@@ -88,8 +88,10 @@
             // ModifyProduct_PartsAssociated_GridView
             // 
             this.ModifyProduct_PartsAssociated_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ModifyProduct_PartsAssociated_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.ModifyProduct_PartsAssociated_GridView.Location = new System.Drawing.Point(394, 248);
             this.ModifyProduct_PartsAssociated_GridView.Name = "ModifyProduct_PartsAssociated_GridView";
+            this.ModifyProduct_PartsAssociated_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ModifyProduct_PartsAssociated_GridView.Size = new System.Drawing.Size(404, 128);
             this.ModifyProduct_PartsAssociated_GridView.TabIndex = 72;
             // 
@@ -201,8 +203,10 @@
             // ModifyProduct_CandidateParts_GridView
             // 
             this.ModifyProduct_CandidateParts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ModifyProduct_CandidateParts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.ModifyProduct_CandidateParts_GridView.Location = new System.Drawing.Point(394, 66);
             this.ModifyProduct_CandidateParts_GridView.Name = "ModifyProduct_CandidateParts_GridView";
+            this.ModifyProduct_CandidateParts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ModifyProduct_CandidateParts_GridView.Size = new System.Drawing.Size(404, 128);
             this.ModifyProduct_CandidateParts_GridView.TabIndex = 58;
             // 
@@ -215,21 +219,22 @@
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             // 
-            // SearchBtn
+            // ModifyProduct_Search_Btn
             // 
-            this.SearchBtn.Location = new System.Drawing.Point(487, 16);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(75, 23);
-            this.SearchBtn.TabIndex = 56;
-            this.SearchBtn.Text = "Search";
-            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.ModifyProduct_Search_Btn.Location = new System.Drawing.Point(487, 16);
+            this.ModifyProduct_Search_Btn.Name = "ModifyProduct_Search_Btn";
+            this.ModifyProduct_Search_Btn.Size = new System.Drawing.Size(75, 23);
+            this.ModifyProduct_Search_Btn.TabIndex = 56;
+            this.ModifyProduct_Search_Btn.Text = "Search";
+            this.ModifyProduct_Search_Btn.UseVisualStyleBackColor = true;
+            this.ModifyProduct_Search_Btn.Click += new System.EventHandler(this.ModifyProduct_Search_Btn_Click);
             // 
-            // SearchTextBox
+            // ModifyProduct_Search_TextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(568, 19);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(230, 20);
-            this.SearchTextBox.TabIndex = 55;
+            this.ModifyProduct_Search_TextBox.Location = new System.Drawing.Point(568, 19);
+            this.ModifyProduct_Search_TextBox.Name = "ModifyProduct_Search_TextBox";
+            this.ModifyProduct_Search_TextBox.Size = new System.Drawing.Size(230, 20);
+            this.ModifyProduct_Search_TextBox.TabIndex = 55;
             // 
             // DeleteBtn
             // 
@@ -273,8 +278,8 @@
             this.Controls.Add(this.Candidate_Parts_Label);
             this.Controls.Add(this.ModifyProduct_CandidateParts_GridView);
             this.Controls.Add(this.AddBtn);
-            this.Controls.Add(this.SearchBtn);
-            this.Controls.Add(this.SearchTextBox);
+            this.Controls.Add(this.ModifyProduct_Search_Btn);
+            this.Controls.Add(this.ModifyProduct_Search_TextBox);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.ModifyProductLabel);
             this.Name = "ModifyProductForm";
@@ -307,8 +312,8 @@
         private System.Windows.Forms.Label Candidate_Parts_Label;
         private System.Windows.Forms.DataGridView ModifyProduct_CandidateParts_GridView;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Button ModifyProduct_Search_Btn;
+        private System.Windows.Forms.TextBox ModifyProduct_Search_TextBox;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Label Min;
     }

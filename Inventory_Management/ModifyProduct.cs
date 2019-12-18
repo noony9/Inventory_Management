@@ -37,7 +37,36 @@ namespace Inventory_Management
 
             Product product = new Product(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text));
             Inventory.UpdateProduct(int.Parse(IDTextBox.Text), product);
+            Inventory.RefreshLists();
             this.Close();
+        }
+
+        private void ModifyProduct_Search_Btn_Click(object sender, EventArgs e)
+        {
+            if (ModifyProduct_Search_TextBox.TextLength < 0)
+            {
+                return;
+            }
+            else
+            {
+
+                foreach (DataGridViewRow row in ModifyProduct_CandidateParts_GridView.Rows)
+                {
+                    Product product = (Product)row.DataBoundItem;
+                    Product userEntry = Inventory.LookupProduct(Convert.ToInt32(ModifyProduct_CandidateParts_GridView.Text));
+
+                    if (userEntry.ProductID == product.ProductID)
+                    {
+                        row.Selected = true;
+                        return;
+                    }
+                    else
+                    {
+                        row.Selected = false;
+                    }
+
+                }
+            }
         }
     }
 }
