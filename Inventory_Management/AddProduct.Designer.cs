@@ -68,9 +68,14 @@
             // 
             // AddProduct_CandidateParts_GridView
             // 
+            this.AddProduct_CandidateParts_GridView.AllowUserToResizeColumns = false;
+            this.AddProduct_CandidateParts_GridView.AllowUserToResizeRows = false;
             this.AddProduct_CandidateParts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AddProduct_CandidateParts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.AddProduct_CandidateParts_GridView.Location = new System.Drawing.Point(415, 78);
             this.AddProduct_CandidateParts_GridView.Name = "AddProduct_CandidateParts_GridView";
+            this.AddProduct_CandidateParts_GridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.AddProduct_CandidateParts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddProduct_CandidateParts_GridView.Size = new System.Drawing.Size(404, 128);
             this.AddProduct_CandidateParts_GridView.TabIndex = 22;
             // 
@@ -82,6 +87,7 @@
             this.AddBtn.TabIndex = 20;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // SearchBtn
             // 
@@ -225,9 +231,13 @@
             // 
             // AddProduct_PartsAssociated_GridView
             // 
+            this.AddProduct_PartsAssociated_GridView.AllowUserToResizeColumns = false;
+            this.AddProduct_PartsAssociated_GridView.AllowUserToResizeRows = false;
             this.AddProduct_PartsAssociated_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AddProduct_PartsAssociated_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.AddProduct_PartsAssociated_GridView.Location = new System.Drawing.Point(415, 260);
             this.AddProduct_PartsAssociated_GridView.Name = "AddProduct_PartsAssociated_GridView";
+            this.AddProduct_PartsAssociated_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddProduct_PartsAssociated_GridView.Size = new System.Drawing.Size(404, 128);
             this.AddProduct_PartsAssociated_GridView.TabIndex = 38;
             // 

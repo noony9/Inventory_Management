@@ -16,12 +16,13 @@ namespace Inventory_Management
         {
             InitializeComponent();
 
-            AddProduct_CandidateParts_GridView.DataSource = Inventory.Parts;
         }
 
         private void Add_Product_Form_Load(object sender, EventArgs e)
         {
-
+            AddProduct_CandidateParts_GridView.DataSource = Inventory.Parts;
+ 
+            AddProduct_PartsAssociated_GridView.DataSource = Product.AssociatedParts;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -64,6 +65,19 @@ namespace Inventory_Management
 
                 }
             }
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            if (AddProduct_CandidateParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Inhouse))
+            {
+                Inhouse inhousePart = (Inhouse)AddProduct_CandidateParts_GridView.CurrentRow.DataBoundItem;
+                Product product = new Product();
+                product.AddAssociatedPart(inhousePart);
+
+
+            }
+         
         }
     }
 }

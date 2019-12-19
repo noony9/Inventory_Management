@@ -21,7 +21,7 @@ namespace Inventory_Management
 
         // Properties
 
-        public BindingList<Part> AssociatedParts = new BindingList<Part>();
+        public static BindingList<Part> AssociatedParts = new BindingList<Part>();
 
         public int ProductID
         {
