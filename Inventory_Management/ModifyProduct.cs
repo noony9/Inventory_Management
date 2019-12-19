@@ -52,12 +52,13 @@ namespace Inventory_Management
 
                 foreach (DataGridViewRow row in ModifyProduct_CandidateParts_GridView.Rows)
                 {
-                    Product product = (Product)row.DataBoundItem;
-                    Product userEntry = Inventory.LookupProduct(Convert.ToInt32(ModifyProduct_CandidateParts_GridView.Text));
+                    Part part = (Part)row.DataBoundItem;
+                    Part userEntry = Inventory.LookupPart(Convert.ToInt32(ModifyProduct_Search_TextBox.Text));
 
-                    if (userEntry.ProductID == product.ProductID)
+                    if (userEntry.PartID == part.PartID)
                     {
                         row.Selected = true;
+                        ModifyProduct_CandidateParts_GridView.CurrentCell = row.Cells[0];
                         return;
                     }
                     else

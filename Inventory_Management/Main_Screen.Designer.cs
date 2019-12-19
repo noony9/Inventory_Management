@@ -187,7 +187,11 @@
             // 
             // MainParts_GridView
             // 
+            this.MainParts_GridView.AllowUserToOrderColumns = true;
+            this.MainParts_GridView.AllowUserToResizeColumns = false;
+            this.MainParts_GridView.AllowUserToResizeRows = false;
             this.MainParts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MainParts_GridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MainParts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.MainParts_GridView.Location = new System.Drawing.Point(34, 109);
             this.MainParts_GridView.Name = "MainParts_GridView";
@@ -197,11 +201,16 @@
             // 
             // MainProducts_GridView
             // 
+            this.MainProducts_GridView.AllowUserToResizeColumns = false;
+            this.MainProducts_GridView.AllowUserToResizeRows = false;
             this.MainProducts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MainProducts_GridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MainProducts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.MainProducts_GridView.Location = new System.Drawing.Point(524, 109);
+            this.MainProducts_GridView.MultiSelect = false;
             this.MainProducts_GridView.Name = "MainProducts_GridView";
             this.MainProducts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MainProducts_GridView.ShowCellErrors = false;
             this.MainProducts_GridView.Size = new System.Drawing.Size(448, 207);
             this.MainProducts_GridView.TabIndex = 15;
             // 

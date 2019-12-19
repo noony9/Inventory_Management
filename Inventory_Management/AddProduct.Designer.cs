@@ -32,7 +32,7 @@
             this.AddProduct_CandidateParts_GridView = new System.Windows.Forms.DataGridView();
             this.AddBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.AddProduct_Search_TextBox = new System.Windows.Forms.TextBox();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.Candidate_Parts_Label = new System.Windows.Forms.Label();
             this.Parts_Associated_Label = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.Min = new System.Windows.Forms.Label();
             this.Max = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.Label();
-            this.Inventory = new System.Windows.Forms.Label();
+            this.InventoryLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.AddProduct_PartsAssociated_GridView = new System.Windows.Forms.DataGridView();
@@ -91,13 +91,14 @@
             this.SearchBtn.TabIndex = 19;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // SearchTextBox
+            // AddProduct_Search_TextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(589, 31);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(230, 20);
-            this.SearchTextBox.TabIndex = 17;
+            this.AddProduct_Search_TextBox.Location = new System.Drawing.Point(589, 31);
+            this.AddProduct_Search_TextBox.Name = "AddProduct_Search_TextBox";
+            this.AddProduct_Search_TextBox.Size = new System.Drawing.Size(230, 20);
+            this.AddProduct_Search_TextBox.TabIndex = 17;
             // 
             // DeleteBtn
             // 
@@ -195,14 +196,14 @@
             this.Price.TabIndex = 29;
             this.Price.Text = "Price";
             // 
-            // Inventory
+            // InventoryLabel
             // 
-            this.Inventory.AutoSize = true;
-            this.Inventory.Location = new System.Drawing.Point(61, 202);
-            this.Inventory.Name = "Inventory";
-            this.Inventory.Size = new System.Drawing.Size(51, 13);
-            this.Inventory.TabIndex = 28;
-            this.Inventory.Text = "Inventory";
+            this.InventoryLabel.AutoSize = true;
+            this.InventoryLabel.Location = new System.Drawing.Point(61, 202);
+            this.InventoryLabel.Name = "InventoryLabel";
+            this.InventoryLabel.Size = new System.Drawing.Size(51, 13);
+            this.InventoryLabel.TabIndex = 28;
+            this.InventoryLabel.Text = "Inventory";
             // 
             // NameLabel
             // 
@@ -248,6 +249,7 @@
             this.SaveBtn.TabIndex = 40;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // AddProductForm
             // 
@@ -266,7 +268,7 @@
             this.Controls.Add(this.Min);
             this.Controls.Add(this.Max);
             this.Controls.Add(this.Price);
-            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.InventoryLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.Parts_Associated_Label);
@@ -275,7 +277,7 @@
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(Add_Product_Label);
-            this.Controls.Add(this.SearchTextBox);
+            this.Controls.Add(this.AddProduct_Search_TextBox);
             this.Controls.Add(this.DeleteBtn);
             this.Name = "AddProductForm";
             this.Text = "Add Product";
@@ -292,7 +294,7 @@
         private System.Windows.Forms.DataGridView AddProduct_CandidateParts_GridView;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.TextBox AddProduct_Search_TextBox;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Label Candidate_Parts_Label;
         private System.Windows.Forms.Label Parts_Associated_Label;
@@ -305,7 +307,7 @@
         private System.Windows.Forms.Label Min;
         private System.Windows.Forms.Label Max;
         private System.Windows.Forms.Label Price;
-        private System.Windows.Forms.Label Inventory;
+        private System.Windows.Forms.Label InventoryLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.DataGridView AddProduct_PartsAssociated_GridView;

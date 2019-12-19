@@ -15,6 +15,11 @@ namespace Inventory_Management
         public Main_Form()
         {
             InitializeComponent();
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             // initialize base lists of parts and products
 
             Inventory.InitializeProductsAndParts();
@@ -30,18 +35,13 @@ namespace Inventory_Management
             bsProduct.DataSource = Inventory.Products;
             MainProducts_GridView.DataSource = bsProduct;
 
-            
+            /*
             bsPart.DataSource = null;
             bsPart.DataSource = Inventory.Parts;
 
             bsProduct.DataSource = null;
             bsProduct.DataSource = Inventory.Products;
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            */
 
         }
 
@@ -69,6 +69,7 @@ namespace Inventory_Management
                     if (userEntry.PartID == part.PartID)
                     {
                         row.Selected = true;
+                        MainParts_GridView.CurrentCell = row.Cells[0];
                         return;
                     }
                     else
@@ -100,7 +101,8 @@ namespace Inventory_Management
                 Outsourced outsourcedPart = (Outsourced)MainParts_GridView.CurrentRow.DataBoundItem;
                 new ModifyPartForm(outsourcedPart).ShowDialog();
                 
-            }  
+            } 
+  
         }
 
         private void Main_Parts_Delete_Btn_Click(object sender, EventArgs e)
@@ -128,6 +130,7 @@ namespace Inventory_Management
                     if (userEntry.ProductID == product.ProductID)
                     {
                         row.Selected = true;
+                        MainProducts_GridView.CurrentCell = row.Cells[0];
                         return;
                     }
                     else
@@ -142,8 +145,7 @@ namespace Inventory_Management
         private void Main_Products_Add_Btn_Click(object sender, EventArgs e)
         {
             // bring up instance of Add product screen
-            AddProductForm addProductForm = new AddProductForm();
-            addProductForm.Show();
+            new AddProductForm().ShowDialog();
         }
 
         private void Main_Products_Modify_Btn_Click(object sender, EventArgs e)
