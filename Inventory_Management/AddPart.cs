@@ -50,7 +50,7 @@ namespace Inventory_Management
                 Inventory.AddPart(outsourcedPart);
 
             }
-            Inventory.RefreshLists();
+
             Close();
         }
     }

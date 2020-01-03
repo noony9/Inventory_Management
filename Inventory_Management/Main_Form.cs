@@ -15,7 +15,7 @@ namespace Inventory_Management
         public Main_Form()
         {
             InitializeComponent();
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,13 +35,13 @@ namespace Inventory_Management
             bsProduct.DataSource = Inventory.Products;
             MainProducts_GridView.DataSource = bsProduct;
 
-            /*
+
             bsPart.DataSource = null;
             bsPart.DataSource = Inventory.Parts;
 
             bsProduct.DataSource = null;
             bsProduct.DataSource = Inventory.Products;
-            */
+
 
         }
 
@@ -60,7 +60,7 @@ namespace Inventory_Management
             }
             else
             {
-               
+
                 foreach (DataGridViewRow row in MainParts_GridView.Rows)
                 {
                     Part part = (Part)row.DataBoundItem;
@@ -76,7 +76,7 @@ namespace Inventory_Management
                     {
                         row.Selected = false;
                     }
-                    
+
                 }
             }
         }
@@ -100,15 +100,23 @@ namespace Inventory_Management
             {
                 Outsourced outsourcedPart = (Outsourced)MainParts_GridView.CurrentRow.DataBoundItem;
                 new ModifyPartForm(outsourcedPart).ShowDialog();
-                
-            } 
-  
+
+            }
+
         }
 
         private void Main_Parts_Delete_Btn_Click(object sender, EventArgs e)
         {
-            var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
-            MainParts_GridView.Rows.RemoveAt(rowIndex);
+            DialogResult confirm = MessageBox.Show("Please confirm that you wish to remove this item", "Delete?", MessageBoxButtons.OKCancel);
+            {
+                if (confirm == DialogResult.OK)
+                {
+                    var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
+                    MainParts_GridView.Rows.RemoveAt(rowIndex);
+                }
+                else return;
+            }
+
         }
 
         // ---------------Product methods------------------//
@@ -157,16 +165,23 @@ namespace Inventory_Management
 
         private void Main_Products_Delete_Btn_Click(object sender, EventArgs e)
         {
-            Product product = (Product)MainProducts_GridView.CurrentRow.DataBoundItem;
-            if (product.AssociatedParts.Count > 0)
+            DialogResult confirm = MessageBox.Show("Please confirm that you wish to remove this item", "Delete?", MessageBoxButtons.OKCancel);
+            if (confirm == DialogResult.OK)
             {
-                MessageBox.Show("Cannot delete a product that has associated parts.  Remove assosicated parts prior to attempting to remove a product.");
+                Product product = (Product)MainProducts_GridView.CurrentRow.DataBoundItem;
+                if (product.AssociatedParts.Count > 0)
+                {
+                    MessageBox.Show("Cannot delete a product that has associated parts.  Remove assosicated parts prior to attempting to remove a product.");
+                }
+                else
+                {
+                    var rowIndex = MainProducts_GridView.CurrentCell.RowIndex;
+                    MainProducts_GridView.Rows.RemoveAt(rowIndex);
+                }
             }
-            else
-            {
-                var rowIndex = MainProducts_GridView.CurrentCell.RowIndex;
-                MainProducts_GridView.Rows.RemoveAt(rowIndex);
-            }
+            else return;
+
+            
         }
 
     }

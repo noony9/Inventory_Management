@@ -100,30 +100,11 @@ namespace Inventory_Management
 
         }
 
-        public static void RefreshLists()
-        {
-            var bsPart = new BindingSource();
-            bsPart.DataSource = Inventory.Parts;
-
-
-            // bind base list of products to DataGridView using a DataSource intermediary
-            var bsProduct = new BindingSource();
-            bsProduct.DataSource = Inventory.Products;
-
-
-            bsPart.DataSource = null;
-            bsPart.DataSource = Inventory.Parts;
-
-            bsProduct.DataSource = null;
-            bsProduct.DataSource = Inventory.Products;
-        }
-
         //--------------------Product Methods---------------------//
         // add new products
         public static void AddProduct(Product product)
         {
             Products.Add(product);
-            RefreshLists();
         }
 
         // iterate through Products list and remove products if the productID is a match
@@ -180,7 +161,6 @@ namespace Inventory_Management
         public static void AddPart(Part part)
         {
             Parts.Add(part);
-            RefreshLists();
         }
 
         // iterate through Parts list and remove products if the partID is a match

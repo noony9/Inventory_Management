@@ -75,11 +75,11 @@
     <Compile Include="ModifyPart.Designer.cs">
       <DependentUpon>ModifyPart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_Screen.cs">
+    <Compile Include="Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_Screen.Designer.cs">
-      <DependentUpon>Main_Screen.cs</DependentUpon>
+    <Compile Include="Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Outsourced.cs" />
     <Compile Include="Part.cs" />
@@ -95,8 +95,8 @@
     <EmbeddedResource Include="ModifyPart.resx">
       <DependentUpon>ModifyPart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_Screen.resx">
-      <DependentUpon>Main_Screen.cs</DependentUpon>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyProduct.resx">
       <DependentUpon>ModifyProduct.cs</DependentUpon>

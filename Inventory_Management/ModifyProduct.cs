@@ -12,6 +12,7 @@ namespace Inventory_Management
 {
     public partial class ModifyProductForm : Form
     {
+        Product product = new Product();
         public ModifyProductForm(Product product)
         {
             InitializeComponent();
@@ -29,7 +30,11 @@ namespace Inventory_Management
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
+            Main_Form mainForm = new Main_Form();
+            mainForm.ShowDialog();
             this.Close();
+
+
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -37,7 +42,6 @@ namespace Inventory_Management
 
             Product product = new Product(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text));
             Inventory.UpdateProduct(int.Parse(IDTextBox.Text), product);
-            Inventory.RefreshLists();
             this.Close();
         }
 
@@ -68,6 +72,30 @@ namespace Inventory_Management
 
                 }
             }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Please confirm that you wish to remove this item", "Delete?", MessageBoxButtons.OKCancel);
+            {
+                if (confirm == DialogResult.OK)
+                {
+                    var rowIndex = ModifyProduct_PartsAssociated_GridView.CurrentCell.RowIndex;
+                    ModifyProduct_PartsAssociated_GridView.Rows.RemoveAt(rowIndex);
+                }
+                else return;
+            }
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            // add the part to it's AssociatedPart list
+
+                int partID = Convert.ToInt32(ModifyProduct_CandidateParts_GridView.Rows[ModifyProduct_CandidateParts_GridView.CurrentCell.RowIndex].Cells[0].Value);
+                product.AddAssociatedPart(Inventory.LookupPart(partID));
+                ModifyProduct_PartsAssociated_GridView.DataSource = product.AssociatedParts;
+                
+
         }
     }
 }

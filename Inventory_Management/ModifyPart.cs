@@ -14,7 +14,6 @@ namespace Inventory_Management
     public partial class ModifyPartForm : Form
     {
 
-        Main_Form mainScreen = new Main_Form();
         public ModifyPartForm()
         {
             InitializeComponent();
@@ -64,20 +63,15 @@ namespace Inventory_Management
                 InhouseRadio.Checked = true;
                 Inhouse inhousePart = new Inhouse(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceCostTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text), int.Parse(IdentifierLabelTextBox.Text));
                 Inventory.UpdatePart(int.Parse(IDTextBox.Text), inhousePart);
-                mainScreen.MainParts_GridView.Update();
-                mainScreen.MainParts_GridView.Refresh();
             }  
             else
             {
                 OutsourcedRadio.Checked = true;
                 Outsourced outsourcedPart = new Outsourced(int.Parse(IDTextBox.Text), NameTextBox.Text, decimal.Parse(PriceCostTextBox.Text), int.Parse(InventoryTextBox.Text), int.Parse(MinTextBox.Text), int.Parse(MaxTextBox.Text), IdentifierLabelTextBox.Text);
                 Inventory.UpdatePart(int.Parse(IDTextBox.Text), outsourcedPart);
-                mainScreen.MainParts_GridView.Update();
-                mainScreen.MainParts_GridView.Refresh();
             }
             Close();
-            mainScreen.MainParts_GridView.Update();
-            mainScreen.MainParts_GridView.Refresh();
+   
         }
 
         private void InhouseChecked(object sender, EventArgs e)
