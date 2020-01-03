@@ -164,12 +164,12 @@ namespace Inventory_Management
         }
 
         // iterate through Parts list and remove products if the partID is a match
-        public static bool RemovePart(Part partID) // bind to remove button
+        public static bool DeletePart(Part part) // bind to remove button
         {
             bool check = false;
             foreach (Part p in Parts)
             {
-                if (partID == p)
+                if (p.PartID == part.PartID)
                 {
                     Parts.Remove(p);
                     check = true;

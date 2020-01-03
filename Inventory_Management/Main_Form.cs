@@ -109,10 +109,23 @@ namespace Inventory_Management
         {
             DialogResult confirm = MessageBox.Show("Please confirm that you wish to remove this item", "Delete?", MessageBoxButtons.OKCancel);
             {
+
                 if (confirm == DialogResult.OK)
                 {
+                   // Part part = (Part)MainParts_GridView.CurrentRow.DataBoundItem;
+                  //  Inventory.DeletePart(part);
                     var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
                     MainParts_GridView.Rows.RemoveAt(rowIndex);
+
+                    Product product = new Product();
+                    foreach (Product p in Inventory.Products)
+                    {
+                        if (p.ProductID == rowIndex)
+                        {
+                            product.RemoveAssociatedPart(rowIndex);
+                        }
+                    }
+                   
                 }
                 else return;
             }

@@ -30,8 +30,8 @@ namespace Inventory_Management
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            Main_Form mainForm = new Main_Form();
-            mainForm.ShowDialog();
+           // Main_Form mainForm = new Main_Form();
+           // mainForm.ShowDialog();
             this.Close();
 
 
@@ -93,7 +93,7 @@ namespace Inventory_Management
 
                 int partID = Convert.ToInt32(ModifyProduct_CandidateParts_GridView.Rows[ModifyProduct_CandidateParts_GridView.CurrentCell.RowIndex].Cells[0].Value);
                 product.AddAssociatedPart(Inventory.LookupPart(partID));
-                ModifyProduct_PartsAssociated_GridView.DataSource = product.AssociatedParts;
+               // ModifyProduct_PartsAssociated_GridView.DataSource = product.AssociatedParts;
                 
 
         }
