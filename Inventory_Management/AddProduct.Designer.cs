@@ -36,8 +36,8 @@
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.Candidate_Parts_Label = new System.Windows.Forms.Label();
             this.Parts_Associated_Label = new System.Windows.Forms.Label();
-            this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.MinTextBox = new System.Windows.Forms.TextBox();
+            this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.AddProduct_PartsAssociated_GridView = new System.Windows.Forms.DataGridView();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
+            this.ResetFields_Btn = new System.Windows.Forms.Button();
             Add_Product_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AddProduct_CandidateParts_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddProduct_PartsAssociated_GridView)).BeginInit();
@@ -75,6 +76,9 @@
             this.AddProduct_CandidateParts_GridView.Location = new System.Drawing.Point(415, 78);
             this.AddProduct_CandidateParts_GridView.Name = "AddProduct_CandidateParts_GridView";
             this.AddProduct_CandidateParts_GridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.AddProduct_CandidateParts_GridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Dubai", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddProduct_CandidateParts_GridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.AddProduct_CandidateParts_GridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.AddProduct_CandidateParts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddProduct_CandidateParts_GridView.Size = new System.Drawing.Size(404, 128);
             this.AddProduct_CandidateParts_GridView.TabIndex = 22;
@@ -134,19 +138,19 @@
             this.Parts_Associated_Label.TabIndex = 25;
             this.Parts_Associated_Label.Text = "Parts Associated with this Product";
             // 
-            // MaxTextBox
-            // 
-            this.MaxTextBox.Location = new System.Drawing.Point(96, 274);
-            this.MaxTextBox.Name = "MaxTextBox";
-            this.MaxTextBox.Size = new System.Drawing.Size(113, 20);
-            this.MaxTextBox.TabIndex = 37;
-            // 
             // MinTextBox
             // 
-            this.MinTextBox.Location = new System.Drawing.Point(266, 274);
+            this.MinTextBox.Location = new System.Drawing.Point(96, 274);
             this.MinTextBox.Name = "MinTextBox";
-            this.MinTextBox.Size = new System.Drawing.Size(100, 20);
-            this.MinTextBox.TabIndex = 36;
+            this.MinTextBox.Size = new System.Drawing.Size(113, 20);
+            this.MinTextBox.TabIndex = 37;
+            // 
+            // MaxTextBox
+            // 
+            this.MaxTextBox.Location = new System.Drawing.Point(266, 274);
+            this.MaxTextBox.Name = "MaxTextBox";
+            this.MaxTextBox.Size = new System.Drawing.Size(100, 20);
+            this.MaxTextBox.TabIndex = 36;
             // 
             // PriceTextBox
             // 
@@ -239,6 +243,9 @@
             this.AddProduct_PartsAssociated_GridView.Location = new System.Drawing.Point(415, 260);
             this.AddProduct_PartsAssociated_GridView.Name = "AddProduct_PartsAssociated_GridView";
             this.AddProduct_PartsAssociated_GridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.AddProduct_PartsAssociated_GridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Dubai", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddProduct_PartsAssociated_GridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.AddProduct_PartsAssociated_GridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.AddProduct_PartsAssociated_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddProduct_PartsAssociated_GridView.Size = new System.Drawing.Size(404, 128);
             this.AddProduct_PartsAssociated_GridView.TabIndex = 38;
@@ -263,16 +270,28 @@
             this.SaveBtn.UseVisualStyleBackColor = true;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
+            // ResetFields_Btn
+            // 
+            this.ResetFields_Btn.Location = new System.Drawing.Point(69, 314);
+            this.ResetFields_Btn.Name = "ResetFields_Btn";
+            this.ResetFields_Btn.Size = new System.Drawing.Size(75, 23);
+            this.ResetFields_Btn.TabIndex = 41;
+            this.ResetFields_Btn.Text = "Reset Fields";
+            this.ResetFields_Btn.UseVisualStyleBackColor = true;
+            this.ResetFields_Btn.Click += new System.EventHandler(this.ResetFields_Btn_Click);
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(839, 454);
+            this.Controls.Add(this.ResetFields_Btn);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.AddProduct_PartsAssociated_GridView);
-            this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.MinTextBox);
+            this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.InventoryTextBox);
             this.Controls.Add(this.NameTextBox);
@@ -310,8 +329,8 @@
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Label Candidate_Parts_Label;
         private System.Windows.Forms.Label Parts_Associated_Label;
-        private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.TextBox MinTextBox;
+        private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.TextBox PriceTextBox;
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
@@ -325,5 +344,6 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Button SaveBtn;
         public System.Windows.Forms.DataGridView AddProduct_PartsAssociated_GridView;
+        private System.Windows.Forms.Button ResetFields_Btn;
     }
 }

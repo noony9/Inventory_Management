@@ -195,6 +195,9 @@
             this.MainParts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.MainParts_GridView.Location = new System.Drawing.Point(34, 109);
             this.MainParts_GridView.Name = "MainParts_GridView";
+            this.MainParts_GridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Dubai", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainParts_GridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.MainParts_GridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.MainParts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MainParts_GridView.Size = new System.Drawing.Size(448, 207);
             this.MainParts_GridView.TabIndex = 14;
@@ -209,6 +212,10 @@
             this.MainProducts_GridView.Location = new System.Drawing.Point(524, 109);
             this.MainProducts_GridView.MultiSelect = false;
             this.MainProducts_GridView.Name = "MainProducts_GridView";
+            this.MainProducts_GridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Dubai", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainProducts_GridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.MainProducts_GridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.MainProducts_GridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MainProducts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MainProducts_GridView.ShowCellErrors = false;
             this.MainProducts_GridView.Size = new System.Drawing.Size(448, 207);
@@ -218,6 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1008, 408);
             this.Controls.Add(this.MainProducts_GridView);
             this.Controls.Add(this.MainParts_GridView);

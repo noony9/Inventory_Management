@@ -11,12 +11,12 @@ namespace Inventory_Management
 {
     public abstract class Part
     {
-        protected int _partID;
-        protected string _name;
-        protected decimal _price;
-        protected int _inStock;
-        protected int _min;
-        protected int _max;
+        private int _partID;
+        private string _name;
+        private decimal _price;
+        private int _inStock;
+        private int _min;
+        private int _max;
 
         // Properties
         public int PartID

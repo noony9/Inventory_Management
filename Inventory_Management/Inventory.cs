@@ -12,95 +12,13 @@ namespace Inventory_Management
     public class Inventory
     {
         Main_Form mainScreen = new Main_Form();
+
         // Properties
         public static BindingList<Product> Products = new BindingList<Product>();
         public static BindingList<Part> Parts = new BindingList<Part>();
 
-        // Method to create a base inventory of products/parts, populate the binding list Products, Parts and AssociatedParts
- 
-        public static void InitializeProductsAndParts()
-        {
-            /*
-            // Create a new BindingList of parts
-            BindingList<Part> partList = new BindingList<Part>();
-            Inventory.Parts = partList;
-
-            BindingList<Product> productList = new BindingList<Product>();
-            Inventory.Products = productList;
-
-            // Ensure new parts and products can be removed and added
-            partList.AllowRemove = true;
-            productList.AllowRemove = true;
-            partList.AllowNew = true;
-            productList.AllowNew = true;
-
-            // Create events when parts are added to the list
-            partList.RaiseListChangedEvents = true;
-            productList.RaiseListChangedEvents = true;
-            */
-
-            // Create products
-            Product product1 = new Product(001, "Yellow Card", 99.00m, 5, 1, 10);
-            Product product2 = new Product(002, "Green Card", 82.00m, 15, 1, 10);
-            Product product3 = new Product(003, "Blue Card", 54.10m, 28, 1, 10);
-            Product product4 = new Product(004, "Purple Card", 78.25m, 17, 1, 10);
-            Product product5 = new Product(005, "Red Card", 20.05m, 5, 1, 10);
-
-            // Create inhouse parts
-            Part inhouse1 = new Inhouse(111, "Card Holder", 10.00m, 115, 1, 10, 7777);
-            Part inhouse2 = new Inhouse(112, "Magnet", 8.00m, 430, 1, 10, 7778);
-            Part inhouse3 = new Inhouse(113, "Wallet", 16.00m, 66, 1, 10, 7779);
-
-            // Create outsourced parts
-            Part outsourced1 = new Outsourced(211, "Glue", 17.00m, 115, 1, 10, "Company A");
-            Part outsourced2 = new Outsourced(212, "Thread", 21.20m, 115, 1, 10, "Company B");
-            Part outsourced3 = new Outsourced(213, "Leather Straps", 36.99m, 115, 1, 10, "Company B");
-
-            // Add products to Products list
-
-            Products.Add(product1);
-            Products.Add(product2);
-            Products.Add(product3);
-            Products.Add(product4);
-            Products.Add(product5);
-
-            // Add parts to Parts list
-            Parts.Add(inhouse1);
-            Parts.Add(inhouse2);
-            Parts.Add(inhouse3);
-            Parts.Add(outsourced1);
-            Parts.Add(outsourced2);
-            Parts.Add(outsourced3);
-
-            // Add parts to products associated list
-
-            // product1 associated parts
-            product1.AddAssociatedPart(inhouse1);
-            product1.AddAssociatedPart(inhouse2);
-            product1.AddAssociatedPart(inhouse3);
-            product1.AddAssociatedPart(outsourced1);
-            product1.AddAssociatedPart(outsourced2);
-            product1.AddAssociatedPart(outsourced3);
-
-            // product2 associated parts
-            product2.AddAssociatedPart(inhouse1);
-            product2.AddAssociatedPart(outsourced3);
-
-            // product3 associated parts
-            product3.AddAssociatedPart(inhouse2);
-
-            // product4 associated parts
-            product4.AddAssociatedPart(inhouse1);
-            product4.AddAssociatedPart(outsourced3);
-
-            // product5 associated parts
-            product5.AddAssociatedPart(inhouse3);
-            product5.AddAssociatedPart(outsourced1);
-            product5.AddAssociatedPart(outsourced3);
-
-        }
-
         //--------------------Product Methods---------------------//
+
         // add new products
         public static void AddProduct(Product product)
         {

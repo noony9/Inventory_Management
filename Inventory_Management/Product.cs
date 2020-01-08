@@ -69,8 +69,8 @@ namespace Inventory_Management
 
         // Methods
         public void AddAssociatedPart(Part part)
-        {
-            AssociatedParts.Add(part);
+        {   
+            AssociatedParts.Add(part);   
         }
         public bool RemoveAssociatedPart(int partID)
         {

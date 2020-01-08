@@ -32,8 +32,8 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.ModifyProduct_PartsAssociated_GridView = new System.Windows.Forms.DataGridView();
-            this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.MinTextBox = new System.Windows.Forms.TextBox();
+            this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -91,23 +91,26 @@
             this.ModifyProduct_PartsAssociated_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.ModifyProduct_PartsAssociated_GridView.Location = new System.Drawing.Point(394, 248);
             this.ModifyProduct_PartsAssociated_GridView.Name = "ModifyProduct_PartsAssociated_GridView";
+            this.ModifyProduct_PartsAssociated_GridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Dubai", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModifyProduct_PartsAssociated_GridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ModifyProduct_PartsAssociated_GridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.ModifyProduct_PartsAssociated_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ModifyProduct_PartsAssociated_GridView.Size = new System.Drawing.Size(404, 128);
             this.ModifyProduct_PartsAssociated_GridView.TabIndex = 72;
             // 
-            // MaxTextBox
-            // 
-            this.MaxTextBox.Location = new System.Drawing.Point(75, 262);
-            this.MaxTextBox.Name = "MaxTextBox";
-            this.MaxTextBox.Size = new System.Drawing.Size(113, 20);
-            this.MaxTextBox.TabIndex = 71;
-            // 
             // MinTextBox
             // 
-            this.MinTextBox.Location = new System.Drawing.Point(245, 262);
+            this.MinTextBox.Location = new System.Drawing.Point(75, 262);
             this.MinTextBox.Name = "MinTextBox";
-            this.MinTextBox.Size = new System.Drawing.Size(100, 20);
-            this.MinTextBox.TabIndex = 70;
+            this.MinTextBox.Size = new System.Drawing.Size(113, 20);
+            this.MinTextBox.TabIndex = 71;
+            // 
+            // MaxTextBox
+            // 
+            this.MaxTextBox.Location = new System.Drawing.Point(245, 262);
+            this.MaxTextBox.Name = "MaxTextBox";
+            this.MaxTextBox.Size = new System.Drawing.Size(100, 20);
+            this.MaxTextBox.TabIndex = 70;
             // 
             // PriceTextBox
             // 
@@ -206,6 +209,9 @@
             this.ModifyProduct_CandidateParts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.ModifyProduct_CandidateParts_GridView.Location = new System.Drawing.Point(394, 66);
             this.ModifyProduct_CandidateParts_GridView.Name = "ModifyProduct_CandidateParts_GridView";
+            this.ModifyProduct_CandidateParts_GridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Dubai", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModifyProduct_CandidateParts_GridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ModifyProduct_CandidateParts_GridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.ModifyProduct_CandidateParts_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ModifyProduct_CandidateParts_GridView.Size = new System.Drawing.Size(404, 128);
             this.ModifyProduct_CandidateParts_GridView.TabIndex = 58;
@@ -260,13 +266,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(838, 450);
             this.Controls.Add(this.Min);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.ModifyProduct_PartsAssociated_GridView);
-            this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.MinTextBox);
+            this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.InventoryTextBox);
             this.Controls.Add(this.NameTextBox);
@@ -286,6 +293,7 @@
             this.Controls.Add(this.ModifyProductLabel);
             this.Name = "ModifyProductForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1Load);
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_PartsAssociated_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyProduct_CandidateParts_GridView)).EndInit();
             this.ResumeLayout(false);
@@ -299,8 +307,8 @@
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.DataGridView ModifyProduct_PartsAssociated_GridView;
-        private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.TextBox MinTextBox;
+        private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.TextBox PriceTextBox;
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox NameTextBox;

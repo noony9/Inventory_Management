@@ -12,37 +12,70 @@ namespace Inventory_Management
 {
     public partial class Main_Form : Form
     {
+        Product product = new Product();
         public Main_Form()
         {
             InitializeComponent();
-
+            InitializeProductsAndParts();
+            RefreshGridViews();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // initialize base lists of parts and products
+            RefreshGridViews();
+        }
 
-            Inventory.InitializeProductsAndParts();
+        public void InitializeProductsAndParts() // initialize base lists of parts and products
+        {
+            // Create products
+            Inventory.Products.Add(new Product(001, "Yellow Figurine", 99.00m, 55, 0, 100));
+            Inventory.Products.Add(new Product(002, "Green Figurine", 82.00m, 29, 0, 100));
+            Inventory.Products.Add(new Product(003, "Blue Figurine", 54.10m, 28, 0, 100));
+            Inventory.Products.Add(new Product(004, "Purple Figurine", 78.25m, 17, 0, 100));
+            Inventory.Products.Add(new Product(005, "Red Figurine", 20.05m, 5, 0, 100));
 
-            // bind base list of parts to DataGridView using a DataSource intermediary
-            var bsPart = new BindingSource();
-            bsPart.DataSource = Inventory.Parts;
-            MainParts_GridView.DataSource = bsPart;
+            // Create inhouse parts
+            Inventory.Parts.Add(new Inhouse(111, "Helmet", 10.00m, 80, 0, 100, 7777));
+            Inventory.Parts.Add(new Inhouse(112, "Cape", 8.00m, 60, 0, 100, 7778));
+            Inventory.Parts.Add(new Inhouse(113, "Bo Staff", 16.00m, 61, 0, 100, 7779));
 
+            // Create outsourced parts
+            Inventory.Parts.Add(new Outsourced(211, "Gloves", 17.00m, 43, 0, 100, "Company A"));
+            Inventory.Parts.Add(new Outsourced(212, "Suit", 21.20m, 28, 0, 100, "Company B"));
+            Inventory.Parts.Add(new Outsourced(213, "Boots", 36.99m, 87, 0, 100, "Company B"));
 
-            // bind base list of products to DataGridView using a DataSource intermediary
-            var bsProduct = new BindingSource();
-            bsProduct.DataSource = Inventory.Products;
-            MainProducts_GridView.DataSource = bsProduct;
+            // add associated parts to product 001
+            Inventory.LookupProduct(001).AddAssociatedPart(Inventory.LookupPart(111));
+            Inventory.LookupProduct(001).AddAssociatedPart(Inventory.LookupPart(112));
+            Inventory.LookupProduct(001).AddAssociatedPart(Inventory.LookupPart(113));
 
+            // add associated parts to product 002
+            Inventory.LookupProduct(002).AddAssociatedPart(Inventory.LookupPart(111));
+            Inventory.LookupProduct(002).AddAssociatedPart(Inventory.LookupPart(112));
+            Inventory.LookupProduct(002).AddAssociatedPart(Inventory.LookupPart(113));
 
-            bsPart.DataSource = null;
-            bsPart.DataSource = Inventory.Parts;
+            // add associated parts to product 003
+            Inventory.LookupProduct(003).AddAssociatedPart(Inventory.LookupPart(112));
+            Inventory.LookupProduct(003).AddAssociatedPart(Inventory.LookupPart(211));
 
-            bsProduct.DataSource = null;
-            bsProduct.DataSource = Inventory.Products;
+            // add associated parts to product 004
+            Inventory.LookupProduct(004).AddAssociatedPart(Inventory.LookupPart(113));
+            Inventory.LookupProduct(004).AddAssociatedPart(Inventory.LookupPart(212));
 
+            // add associated parts to product 005
+            Inventory.LookupProduct(005).AddAssociatedPart(Inventory.LookupPart(112));
+            Inventory.LookupProduct(005).AddAssociatedPart(Inventory.LookupPart(213));
+        }
+        public void RefreshGridViews()
+        {
+           // MainParts_GridView.AutoGenerateColumns = false;
+            MainParts_GridView.DataSource = Inventory.Parts;
+            MainParts_GridView.ClearSelection();
 
+           // MainProducts_GridView.AutoGenerateColumns = false;
+            MainProducts_GridView.DataSource = Inventory.Products;
+            MainProducts_GridView.ClearSelection();
         }
 
         private void Main_Exit_Btn_Click(object sender, EventArgs e)
@@ -60,24 +93,26 @@ namespace Inventory_Management
             }
             else
             {
-
-                foreach (DataGridViewRow row in MainParts_GridView.Rows)
+                try
                 {
-                    Part part = (Part)row.DataBoundItem;
-                    Part userEntry = Inventory.LookupPart(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
-
-                    if (userEntry.PartID == part.PartID)
+                    foreach (DataGridViewRow row in MainParts_GridView.Rows)
                     {
-                        row.Selected = true;
-                        MainParts_GridView.CurrentCell = row.Cells[0];
-                        return;
-                    }
-                    else
-                    {
-                        row.Selected = false;
-                    }
+                        Part part = (Part)row.DataBoundItem;
+                        Part userEntry = Inventory.LookupPart(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
 
+                        if (userEntry.PartID == part?.PartID) // Exception Handling: return null instead of throwing NullReferenceException if user searches for value that does not exist
+                        {
+                            row.Selected = true;
+                            MainParts_GridView.CurrentCell = row.Cells[0];
+                            return;
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                        }
+                    }
                 }
+                catch { }
             }
         }
 
@@ -112,20 +147,21 @@ namespace Inventory_Management
 
                 if (confirm == DialogResult.OK)
                 {
-                   // Part part = (Part)MainParts_GridView.CurrentRow.DataBoundItem;
-                  //  Inventory.DeletePart(part);
+                    // Part part = (Part)MainParts_GridView.CurrentRow.DataBoundItem;
+                    //  Inventory.DeletePart(part);
                     var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
                     MainParts_GridView.Rows.RemoveAt(rowIndex);
-
-                    Product product = new Product();
-                    foreach (Product p in Inventory.Products)
+                    if (MainParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Inhouse))
                     {
-                        if (p.ProductID == rowIndex)
-                        {
-                            product.RemoveAssociatedPart(rowIndex);
-                        }
+                        Inhouse inhousePart = (Inhouse)MainParts_GridView.CurrentRow.DataBoundItem;
+                        product.RemoveAssociatedPart(rowIndex);
                     }
-                   
+                    else if (MainParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Outsourced))
+                    {
+                        Outsourced outsourcedPart = (Outsourced)MainParts_GridView.CurrentRow.DataBoundItem;
+                        product.RemoveAssociatedPart(rowIndex);
+
+                    }
                 }
                 else return;
             }
@@ -142,24 +178,26 @@ namespace Inventory_Management
             }
             else
             {
-
-                foreach (DataGridViewRow row in MainProducts_GridView.Rows)
+                try
                 {
-                    Product product = (Product)row.DataBoundItem;
-                    Product userEntry = Inventory.LookupProduct(Convert.ToInt32(Main_Products_Search_TextBox.Text));
-
-                    if (userEntry.ProductID == product.ProductID)
+                    foreach (DataGridViewRow row in MainProducts_GridView.Rows)
                     {
-                        row.Selected = true;
-                        MainProducts_GridView.CurrentCell = row.Cells[0];
-                        return;
-                    }
-                    else
-                    {
-                        row.Selected = false;
-                    }
+                        Product product = (Product)row.DataBoundItem;
+                        Product userEntry = Inventory.LookupProduct(Convert.ToInt32(Main_Products_Search_TextBox.Text));
 
+                        if (userEntry.ProductID == product?.ProductID) // Exception Handling: return null instead of throwing NullReferenceException if user searches for value that does not exist
+                        {
+                            row.Selected = true;
+                            MainProducts_GridView.CurrentCell = row.Cells[0];
+                            return;
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                        }
+                    }
                 }
+                catch { } 
             }
         }
 
@@ -171,7 +209,7 @@ namespace Inventory_Management
 
         private void Main_Products_Modify_Btn_Click(object sender, EventArgs e)
         {
-            // bring up instance of Modfy product screen
+            // bring up instance of Modfy product screen and product
             Product product = (Product)MainProducts_GridView.CurrentRow.DataBoundItem;
             new ModifyProductForm(product).ShowDialog();
         }

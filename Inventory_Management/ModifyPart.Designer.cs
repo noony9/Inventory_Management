@@ -30,8 +30,8 @@
         {
             this.ModifyPartLabel = new System.Windows.Forms.Label();
             this.IdentifierLabelTextBox = new System.Windows.Forms.TextBox();
-            this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.MinTextBox = new System.Windows.Forms.TextBox();
+            this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.PriceCostTextBox = new System.Windows.Forms.TextBox();
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -66,19 +66,19 @@
             this.IdentifierLabelTextBox.Size = new System.Drawing.Size(151, 20);
             this.IdentifierLabelTextBox.TabIndex = 52;
             // 
-            // MaxTextBox
-            // 
-            this.MaxTextBox.Location = new System.Drawing.Point(207, 234);
-            this.MaxTextBox.Name = "MaxTextBox";
-            this.MaxTextBox.Size = new System.Drawing.Size(113, 20);
-            this.MaxTextBox.TabIndex = 51;
-            // 
             // MinTextBox
             // 
-            this.MinTextBox.Location = new System.Drawing.Point(377, 234);
+            this.MinTextBox.Location = new System.Drawing.Point(207, 234);
             this.MinTextBox.Name = "MinTextBox";
-            this.MinTextBox.Size = new System.Drawing.Size(100, 20);
-            this.MinTextBox.TabIndex = 50;
+            this.MinTextBox.Size = new System.Drawing.Size(113, 20);
+            this.MinTextBox.TabIndex = 51;
+            // 
+            // MaxTextBox
+            // 
+            this.MaxTextBox.Location = new System.Drawing.Point(377, 234);
+            this.MaxTextBox.Name = "MaxTextBox";
+            this.MaxTextBox.Size = new System.Drawing.Size(100, 20);
+            this.MaxTextBox.TabIndex = 50;
             // 
             // PriceCostTextBox
             // 
@@ -219,12 +219,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(549, 426);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.IdentifierLabelTextBox);
-            this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.MinTextBox);
+            this.Controls.Add(this.MaxTextBox);
             this.Controls.Add(this.PriceCostTextBox);
             this.Controls.Add(this.InventoryTextBox);
             this.Controls.Add(this.NameTextBox);
@@ -249,8 +250,8 @@
 
         private System.Windows.Forms.Label ModifyPartLabel;
         private System.Windows.Forms.TextBox IdentifierLabelTextBox;
-        private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.TextBox MinTextBox;
+        private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.TextBox PriceCostTextBox;
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
