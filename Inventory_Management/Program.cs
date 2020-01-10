@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Inventory_Management
+namespace Inventory_Management // This is a C# Project by Daniel Jacobs (Student ID: 00803586), C968 Software I
 {
     static class Program
     {

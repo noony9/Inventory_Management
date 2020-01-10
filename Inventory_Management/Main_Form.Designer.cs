@@ -44,11 +44,13 @@
             this.Main_Products_Search_TextBox = new System.Windows.Forms.TextBox();
             this.MainParts_GridView = new System.Windows.Forms.DataGridView();
             this.MainProducts_GridView = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             InventoryManagementSystem = new System.Windows.Forms.Label();
             Parts = new System.Windows.Forms.Label();
             Products = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainParts_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainProducts_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // InventoryManagementSystem
@@ -117,6 +119,7 @@
             this.Main_Parts_Search_TextBox.Name = "Main_Parts_Search_TextBox";
             this.Main_Parts_Search_TextBox.Size = new System.Drawing.Size(139, 20);
             this.Main_Parts_Search_TextBox.TabIndex = 3;
+            this.Main_Parts_Search_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Main_Parts_Search_TextBox_KeyPress);
             // 
             // Main_Parts_Search_Btn
             // 
@@ -184,6 +187,7 @@
             this.Main_Products_Search_TextBox.Name = "Main_Products_Search_TextBox";
             this.Main_Products_Search_TextBox.Size = new System.Drawing.Size(136, 20);
             this.Main_Products_Search_TextBox.TabIndex = 11;
+            this.Main_Products_Search_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Main_Products_Search_TextBox_KeyPress);
             // 
             // MainParts_GridView
             // 
@@ -221,12 +225,23 @@
             this.MainProducts_GridView.Size = new System.Drawing.Size(448, 207);
             this.MainProducts_GridView.TabIndex = 15;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Inventory_Management.Properties.Resources.noony9_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(34, 331);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(59, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1008, 408);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MainProducts_GridView);
             this.Controls.Add(this.MainParts_GridView);
             this.Controls.Add(Products);
@@ -248,6 +263,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainParts_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainProducts_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,6 +284,7 @@
         private System.Windows.Forms.TextBox Main_Products_Search_TextBox;
         public System.Windows.Forms.DataGridView MainProducts_GridView;
         public System.Windows.Forms.DataGridView MainParts_GridView;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

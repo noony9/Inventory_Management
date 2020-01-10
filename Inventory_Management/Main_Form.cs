@@ -85,6 +85,7 @@ namespace Inventory_Management
 
         // ---------------Part methods------------------//
 
+        // search parts by clicking search button
         private void Main_Parts_Search_Btn_Click(object sender, EventArgs e)
         {
             if (Main_Parts_Search_TextBox.TextLength < 0)
@@ -116,6 +117,37 @@ namespace Inventory_Management
             }
         }
 
+        // search parts by pressing enter key
+        private void Main_Parts_Search_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Main_Parts_Search_TextBox.TextLength < 0)
+            {
+                return;
+            }
+            else
+            {
+                try
+                {
+                    foreach (DataGridViewRow row in MainParts_GridView.Rows)
+                    {
+                        Part part = (Part)row.DataBoundItem;
+                        Part userEntry = Inventory.LookupPart(Convert.ToInt32(Main_Parts_Search_TextBox.Text));
+
+                        if (userEntry.PartID == part?.PartID) // Exception Handling: return null instead of throwing NullReferenceException if user searches for value that does not exist
+                        {
+                            row.Selected = true;
+                            MainParts_GridView.CurrentCell = row.Cells[0];
+                            return;
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                        }
+                    }
+                }
+                catch { }
+            }
+        }
         private void Main_Parts_Add_Btn_Click(object sender, EventArgs e)
         {
             // bring up instance of Add part screen
@@ -135,7 +167,6 @@ namespace Inventory_Management
             {
                 Outsourced outsourcedPart = (Outsourced)MainParts_GridView.CurrentRow.DataBoundItem;
                 new ModifyPartForm(outsourcedPart).ShowDialog();
-
             }
 
         }
@@ -148,30 +179,20 @@ namespace Inventory_Management
                 if (confirm == DialogResult.OK)
                 {
                     // Part part = (Part)MainParts_GridView.CurrentRow.DataBoundItem;
-                    //  Inventory.DeletePart(part);
+                    // Inventory.DeletePart(part);
                     var rowIndex = MainParts_GridView.CurrentCell.RowIndex;
                     MainParts_GridView.Rows.RemoveAt(rowIndex);
-                    if (MainParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Inhouse))
-                    {
-                        Inhouse inhousePart = (Inhouse)MainParts_GridView.CurrentRow.DataBoundItem;
-                        product.RemoveAssociatedPart(rowIndex);
-                    }
-                    else if (MainParts_GridView.CurrentRow.DataBoundItem.GetType() == typeof(Outsourced))
-                    {
-                        Outsourced outsourcedPart = (Outsourced)MainParts_GridView.CurrentRow.DataBoundItem;
-                        product.RemoveAssociatedPart(rowIndex);
-
-                    }
+                    product.RemoveAssociatedPart(rowIndex);
                 }
                 else return;
             }
-
         }
 
         // ---------------Product methods------------------//
+
+        // search products by clicking search button
         private void Main_Products_Search_Btn_Click(object sender, EventArgs e)
         {
-
             if (Main_Products_Search_TextBox.TextLength < 0)
             {
                 return;
@@ -198,6 +219,38 @@ namespace Inventory_Management
                     }
                 }
                 catch { } 
+            }
+        }
+
+        // search products by pressing enter key
+        private void Main_Products_Search_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Main_Products_Search_TextBox.TextLength < 0)
+            {
+                return;
+            }
+            else
+            {
+                try
+                {
+                    foreach (DataGridViewRow row in MainProducts_GridView.Rows)
+                    {
+                        Product product = (Product)row.DataBoundItem;
+                        Product userEntry = Inventory.LookupProduct(Convert.ToInt32(Main_Products_Search_TextBox.Text));
+
+                        if (userEntry.ProductID == product?.ProductID) // Exception Handling: return null instead of throwing NullReferenceException if user searches for value that does not exist
+                        {
+                            row.Selected = true;
+                            MainProducts_GridView.CurrentCell = row.Cells[0];
+                            return;
+                        }
+                        else
+                        {
+                            row.Selected = false;
+                        }
+                    }
+                }
+                catch { }
             }
         }
 
@@ -230,10 +283,7 @@ namespace Inventory_Management
                     MainProducts_GridView.Rows.RemoveAt(rowIndex);
                 }
             }
-            else return;
-
-            
+            else return;   
         }
-
     }
 }
