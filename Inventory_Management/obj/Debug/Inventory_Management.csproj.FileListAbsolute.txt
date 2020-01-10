@@ -11,3 +11,7 @@ C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\De
 C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.Main_Form.resources
 C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.ModifyProductForm.resources
 C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csprojAssemblyReference.cache
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.exe.manifest
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.application
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.exe.manifest
+C:\Users\drjac\Documents\GITHUB\Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.application
